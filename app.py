@@ -13,7 +13,7 @@ def renderHome():
     http://127.0.0.1:5000/home
     '''
 
-    return (render_template('index.html') )
+    return (render_template('home.html') )
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
