@@ -7,12 +7,16 @@
             <!-- google font api -->
             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-                    
+
                     <!-- css -->
+<<<<<<< HEAD
 
                         
+=======
+                    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
-                    <style>
+                    <!-- favicon -->
 
                     input[type=text] {
                         width: 20%;
@@ -26,59 +30,36 @@
                         outline: none;
                         }
 
+
+<<<<<<< HEAD
                     
                         label {
                             float: left;
                             padding-left: 20px;
+=======
+                        </head>
+
+                        <style>
+
                             }
-                        
 
-                        input[type=text]:focus {
-                        border: 3px solid #555;
-                        }
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
+<<<<<<< HEAD
                         
                         header {
                             background-color: white;
                             color: white;
                             align-content: center;
                         }
+=======
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
-                        body{
-                            background-color: lightgray;
-                        }
 
-                        img{
-                            width: 500px;
-                        }
 
-                        .form-control{
-                            align-content: center;
-                        }
 
-                        #footer-image{
-                            width: 100px;
-                        }
 
-                        footer{
-                            padding-top: 10px;
-                            background-color: #0076AB;
-                            color: white;
-                            padding-bottom: 10px;
-                        }
 
-                        
-                        input[type=submit] {
-                            padding:5px 15px; 
-                            background:#2196F3; 
-                            border:0 none;
-                            cursor:pointer;
-                            color: white;
-                        }
-                        
-                    </style>
-                        </head>
-    
     <body>
             <header>
                     <div id ="head-content">
@@ -90,9 +71,9 @@
         {% block content %}
         <div id="box">
         <h3>Demographics</h3>
-        
+
         <br>
-        
+
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
             <p>
@@ -303,7 +284,7 @@
         </form>
         {% endblock %}
     </div>
-        
+
     </body>
     <footer>
             <H6>Copyright © 2004 - 2019 PODER. All rights reserved. Design CPW
@@ -311,5 +292,3 @@
                 <img id= "footer-image" src="{{ url_for('static', filename='img/gximage2.png') }}">
           </footer>
 </html>
-
-
