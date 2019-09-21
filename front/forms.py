@@ -185,8 +185,6 @@ class PlacementTest(FlaskForm):
     submit = SubmitField('Submit')
 
 
-orientation = ""
-
 class ScheduleOrientation(FlaskForm):
     start_date_fall = datetime.datetime(2019, 8, 26)
     start_date_spring = datetime.datetime(2020, 1, 1)
@@ -214,5 +212,7 @@ class printUpcomingDates(FlaskForm):
             upcoming_class_dates.append(str(class_date))
         class_date += datetime.timedelta(days = 7)
 
+    file = open("orientationDate.txt", "r")
+    orientation = file.read()
     orientation_date = TextField('Upcoming orientation date: ' + orientation)
     output_classes = TextField('Upcoming classes are on dates: ' + str(upcoming_class_dates))

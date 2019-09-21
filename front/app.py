@@ -4,7 +4,7 @@ import threading, webbrowser
 import requests
 import json
 
-from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest, printUpcomingDates, ScheduleOrientation, orientation
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest, printUpcomingDates, ScheduleOrientation
 
 
 
