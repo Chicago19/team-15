@@ -1,3 +1,4 @@
+import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, SelectField, SelectMultipleField, validators
 from wtforms.validators import DataRequired, Email, Length, input_required, optional
@@ -16,7 +17,7 @@ class DemographicForm(FlaskForm):
     last_name  = StringField(u'Last Name:', validators=[input_required()])
     middle_name  = StringField(u'Middle Name:', validators=[optional()])
     date_of_birth = StringField(u'Date of Birth:', validators=[input_required()])
-    gender = BooleanField() #gender
+    gender = SelectField(u'Gender', choices=[('Female', 'Female'), ('Male', 'Male')]) #gender
     marital_status = SelectField(u'Marital Status:', choices=[('Single', 'Single'),
     ('Married', 'Married'), ('Divorced', 'Divorced'), ('Widow', 'Widow')])
     spanish_origin = BooleanField();  #Are you hispanic or latino?
@@ -31,6 +32,7 @@ class DemographicForm(FlaskForm):
     native_lang = StringField(u'If yes, record native language', validators=[validators.optional()])
 
     #contact info
+    email = StringField('Email Address', validators=[validators.input_required(), Email()])
     address = StringField('Address', validators=[validators.input_required()])
     city = StringField('City', validators=[validators.input_required()])
     state = StringField('State', validators=[validators.input_required()])
@@ -43,7 +45,7 @@ class DemographicForm(FlaskForm):
 
     #education
     max_grade_completed = StringField('Maximum grade of education completed', validators=[validators.input_required()])
-    school_type = BooleanField() #us based schooling or non-us based schooling
+    school_type = SelectField(u'Schooling Type', choices=[('US-based school', 'US-based school'), ('non-US based school', 'non-US based school')])
     date_last_enrolled = StringField('Month/Year when last enrolled', validators=[validators.input_required()])
     num_school_years_completed = SelectField(u'Number of school years completed',
     choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3'),
@@ -77,7 +79,7 @@ class DemographicForm(FlaskForm):
     ('Participant in a WorkPlace Literacy program', 'Participant in a WorkPlace Literacy program'), ('Participant in a Volunteer Literacy program','Participant in a Volunteer Literacy program'), ('In Program for the homeless', 'In Program for the homeless'),
     ('In a correctional facility', 'In a correctional facility'), ('In a community correctional program', 'In a community correctional program'), ('In other institutional setting', 'In other institutional setting')])
 
-    children = BooleanField()
+    children = BooleanField() #Do you have children?
     num_children = StringField(u'How many children do you have?', validators=[validators.optional()])
     age_children = StringField(u'How old are they?', validators=[validators.optional()])
     school_type = SelectField(u'What type of school do they attend?', choices=[('Public', 'Public'), ('Private', 'Private'), ('Charter', 'Charter'), ('None', 'None')])
@@ -126,3 +128,39 @@ class CareerInterest(FlaskForm):
     ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
     ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
     ])
+    start_date_fall = datetime.datetime(2019, 8, 26)
+    start_date_spring = datetime.datetime(2020, 1, 1)
+    start_date_summer = datetime.datetime(2020, 5, 10)
+
+    today = datetime.datetime.now()
+
+    possible_dates = []
+    while (today <= start_date_fall + datetime.timedelta(days=70)):
+        possible_dates.append((str(today), str(today)))
+        today += datetime.timedelta(days = 1)
+    orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
+    submit = SubmitField('Submit')
+
+class PlacementTest(FlaskForm):
+    question_1 = SelectField("What's the mother's name?", choices=[('a', 'His name is Pilar.'), ('b', 'Her name is Pilar.'), ('c', 'Their name is Pilar.'), ('d', 'Your name is Pilar.')])
+    question_2 = SelectField("There are three ___ on the table.", choices=[('a', 'cup'), ('b', 'cups'), ('c', 'cake'), ('d', 'plate')])
+    question_3 = SelectField("Is Ramona happy?", choices=[('a', 'Yes, she is.'), ('b', 'Yes, we are.'), ('c', 'Yes, he is.'), ('d.', 'Yes, they are.')])
+    question_4 = SelectField("Carmina's Restaurant is open ___.", choices=[('a', 'on Sunday'), ('b', 'on Tuesday'), ('on Saturday', 'on Saturday'), ('on Monday', 'on Monday')])
+    question_5 = SelectField("How many people work at the day-care center?", choices = [('three', 'three'), ('four', 'four'), ('five', 'five'), ('six', 'six')])
+    question_6 = SelectField("Who works until 8:00 p.m. on Tuesday and Thursday?", choices = [('Dan', 'Dan'), ('Juan', 'Juan'), ('Megan', 'Megan'), ('Sally', 'Sally')])
+    question_7 = SelectField("The post office is ___ the parking lot.", choices = [('on', 'on'), ('across from', 'across from'), ('on the corner of', 'on the corner of'), ('next to', 'next to')])
+    question_8 = SelectField("What are Katia and Sara doing? They ____", choices = [('talking', 'talking'), ('are talking', 'are talking'), ('is talking', 'is talking'), ('talk', 'talk')])
+    question_9 = SelectField("Does Lee ___ a fever?", choices= [('had', 'had'), ('has', 'has'), ('have', 'have'), ('having', 'having')])
+    question_10 = SelectField("When do you eat lunch? ___ 12:30", choices = [('In', 'In'), ('On', 'On'), ('At', 'At'), ('From', 'From')])
+    question_11 = SelectField("How many ___ do we have? Three.", choices = [('tea', 'tea'), ('onions', 'onions'), ('milk', 'milk'), ('bread', 'bread')])
+    quesion_12 = SelectField("Yolanda is a teacher now. She ___ a teacher's assistant before.", choices = [('is', 'is'), ('are', 'are'), ('was', 'was'), ('were', 'were')])
+    question_13 = SelectField("Yesterday, Dan ____ groceries after work.", choices=[('bought', 'bought'), ('buying', 'buying'), ('buy', 'buy'), ('buys', 'buys')])
+    question_14 = SelectField("Which course meets on Mondays and Tuesdays?", choices=[('GED', 'GED'), ('TV and DVD repair', 'TV and DVD repair'), ('Introduction to Computers', 'Introduction to Computers'), ('Citizenship', 'Citizenship')])
+    question_15 = SelectField("What did Joe buy Sylvia? He bought ___ a cake.", choices=[('to her', 'to her'), ('them', 'them'), ('she', 'she'), ('her', 'her')])
+    question_16 = SelectField("Leon has a test tomorrow. He ___ study tonight.", choices = [('is', 'is'), ('does', 'does'), ('will', 'will'), ('are', 'are')])
+    question_17 = SelectField("When do Mr. and Mrs. Yamada usually eat dinner? They usually ___ at 7 p.m.", choices = [('eat', 'eat'), ('eats', 'eats'), ('ate', 'ate'), ('eating', 'eating')])
+    question_18 = SelectField("Marcia's back is hurting. She ___ to see a doctor.", choices = [('have', 'have'), ('has', 'has'), ('having', 'having'), ('had', 'had')])
+    question_19 = SelectField("How long does it take to drive to Philadelphia? It takes ____.", choices = [('every day', 'every day'), ('often', 'often'), ('about two hours', 'about two hours'), ('twice a month', 'twice a month')])
+    question_20 = SelectField("The white refrigerator is large. But the gray refrigerator is ____.", choices= [('larger than', 'larger than'), ('smaller', 'smaller'), ('larger', 'larger'), ('large', 'large')])
+    question_21 = SelectField("Ravi cleaned his room, ___ he didn't make his bed.", choices = [('or', 'or'), ('but', 'but'), ('and', 'and'), ('now', 'now')])
+    submit = SubmitField('Submit')

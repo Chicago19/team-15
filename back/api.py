@@ -28,9 +28,9 @@ def accountCreation():
             email = data['username']
             password = data['password']
 
-            data = pd.read_csv(str(dataFolder))
+            df = pd.read_csv(str(dfFolder))
 
-            user = data.loc[data["username"] == email]
+            user = df.loc[df["username"] == email]
 
             h = hashlib.md5(password.encode())
             print(h.hexdigest())
@@ -38,9 +38,9 @@ def accountCreation():
             # If the user doesn't exist yet, put them in!
             if user.empty:
 
-                data = data.append({'username' : email , 'password' : h.hexdigest()} , ignore_index=True)
+                df = df.append({'username' : email , 'password' : h.hexdigest()} , ignore_index=True)
 
-                data.to_csv(str(dataFolder))
+                df.to_csv(str(dataFolder))
 
                 return "200 - OK"
 
@@ -48,7 +48,7 @@ def accountCreation():
                 return '405 - Method Not Allowed'
 
 @app.route('/demographics/', methods=['POST'])
-def accountCreation():
+def demographics():
     if request.method == 'POST':
         data = request.get_json()
 
@@ -56,7 +56,6 @@ def accountCreation():
             return json.dumps({error: "Error"})
 
         if request.headers.get('x-api-token') == 'jria':
-
             first_name = data['first_name']
             last_name = data['last_name']
             middle_name = data['middle_name']
@@ -135,13 +134,89 @@ def accountCreation():
             why_learn_english = data['why_learn_english']
 
 
-            data = pd.read_csv(str(dataFolder))
-            user = data.loc[data["username"] == email]
-            index = data.index[[data["username"] == email]
+            df = pd.read_csv(str(dataFolder))
+            i = df.index[data["username"] == df["username"]]
 
 
-            if not user.empty:
-                user.loc[]
+            if i is not None:
+                df.at[i, 'first_name'] = first_name
+                df.at[i, 'last_name'] = last_name
+                df.at[i, 'middle_name'] = middle_name
+                df.at[i, 'date_of_birth'] = date_of_birth
+                df.at[i, 'date_of_birth'] = gender
+                df.at[i, 'marital_status'] = marital_statuss
+                df.at[i, 'spanish_origin'] = spanish_origin
+                df.at[i, 'country_of_origin'] = country_of_origin
+                df.at[i, 'racial_group'] = racial_group
+
+                df.at[i, 'english_second_lang'] = english_second_lang
+                df.at[i, 'native_lang'] = native_lang
+
+                df.at[i, 'address'] = address
+                df.at[i, 'city'] = city
+                df.at[i, 'state'] = state
+                df.at[i, 'zip_code'] = zip_code
+                df.at[i, 'home_phone'] = home_phone
+                df.at[i, 'cell_phone'] = cell_phone
+                df.at[i, 'emergency_contact_name'] = emergency_contact_name
+                df.at[i, 'emergency_contact_num'] = emergency_contact_num
+                df.at[i, 'emergency_contact_relation'] = emergency_contact_relation
+
+                df.at[i, 'max_grade_completed'] = max_grade_completed
+                df.at[i, 'school_type'] = school_type
+                df.at[i, 'date_last_enrolled'] = date_last_enrolled
+                df.at[i, 'num_school_years_completed'] = num_school_years_completed
+
+                df.at[i, 'occupation'] = occupation
+                df.at[i, 'employer_name'] = employer_name
+                df.at[i, 'employer_address'] = employer_address
+                df.at[i, 'employment_status'] = employment_status
+
+                df.at[i, 'hours_per_week'] = hours_per_week
+                df.at[i, 'work_phone'] = work_phone
+
+                df.at[i, 'num_dependents_minor'] = num_dependents_minor
+                df.at[i, 'num_dependents_other'] = num_dependents_other
+                df.at[i, 'yearly_income'] = yearly_income
+                df.at[i, 'public_assistance'] = public_assistance
+                df.at[i, 'public_assistance_number'] = public_assistance_number
+                df.at[i, 'disability'] = disability
+
+                df.at[i, 'living_area'] = living_area
+                df.at[i, 'how_hear_about'] = how_hear_about
+                df.at[i, 'add_student_info'] = add_student_info
+                df.at[i, 'add_student_info2'] = add_student_info2
+
+                df.at[i, 'children'] = children
+                df.at[i, 'num_children'] = num_children
+                df.at[i, 'age_children'] = age_children
+                df.at[i, 'school_type'] = school_type
+                df.at[i, 'take_care_of_kids'] = take_care_of_kids
+                df.at[i, 'immigration_status'] = immigration_status
+                df.at[i, 'government_aid'] = government_aid
+
+                df.at[i, 'checking_acc'] = checking_acc
+                df.at[i, 'savings_acc'] = savings_acc
+                df.at[i, 'library_card'] = library_card
+
+                df.at[i, 'english_classes'] = english_classes
+                df.at[i, 'english_class_details'] = english_class_details
+
+                df.at[i, 'work'] = work
+                df.at[i, 'work_benefits'] = work_benefits
+
+                df.at[i, 'house_or_rent'] = house_or_rent
+
+                df.at[i, 'smartphone'] = smartphone
+                df.at[i, 'tablet'] = tablet
+                df.at[i, 'computers'] = computer
+                df.at[i, 'internet'] = internet
+                df.at[i, 'internet_access'] = internet_access
+                df.at[i, 'internet_access_elsewhere'] = internet_access_elsewhere
+
+                df.at[i, 'why_learn_english'] = why_learn_english
+
+                df.to_csv(str(dataFolder))
 
                 return "200 - OK"
 

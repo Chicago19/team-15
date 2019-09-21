@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm
+from forms import AccountCreationForm, DemographicForm, CareerInterest
 import requests
 import json
 
