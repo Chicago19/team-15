@@ -128,13 +128,14 @@
       }
       #content{
         box-sizing: content-box;
-        width: 400px;
+        margin-left: 30%;
+        margin-right: 30%;
         height: 1000px;
         background-color: white;
-        align-content: center;
-        margin-left: 530px;
         padding-top: 35px;
         text-align: center;
+        align-items: center;
+        flex-direction: column;
       }
       body {
           text-align: center;
@@ -160,11 +161,13 @@
     <header>
       <div id ="head-content">
         <div id = "logo">
-          <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+          <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
+            <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+          </a>
         </div>
       </div>
     </header>
- 
+
     <div id="content">
         <h2>Daycare Services</h2>
         <p></p>
