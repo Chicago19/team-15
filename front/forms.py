@@ -17,8 +17,6 @@ class DashboardForm(FlaskForm):
     editprofile = SubmitField('Edit Profile')
     attendance = SubmitField('Attendance')
 
-
-
 orientation = ""
 
 class ScheduleOrientation(FlaskForm):
