@@ -48,7 +48,7 @@ def accountCreation():
                 return '405 - Method Not Allowed'
 
 @app.route('/login/', methods=['GET','POST'])
-def accountCreation():
+def login():
     if request.method == 'GET':
 
         data = request.get_json()
