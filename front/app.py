@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm
+from forms import AccountCreationForm, DemographicForm, CareerInterest
 
 
 app = Flask(__name__)
