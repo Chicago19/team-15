@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PODER</title>
+    <header> <title>Pizarron</title> </header>
     <!-- boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- google font api -->
@@ -14,20 +14,8 @@
   </head>
 
   <body>
-    {% block content %}
-     <h3>Dashboard</h3>
-
-     <br>
-
-     <form action="" method="post" novalidate>
-         {{ form.hidden_tag() }}
-
-         <p>{{ form.calendar }}</p>
-         <p>{{ form.grades}}</p>
-         <p>{{ form.editprofile}}</p>
-         <p>{{ form.attendance}}</p>
-     </form>
-   {% endblock %}
+<button type="button"> Grades </button>
+<button type="button"> Calendar </button>
 
   </body>
 </html>
