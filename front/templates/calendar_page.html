@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PODER</title>
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- google font api -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  </head>
+
+  <body>
+    {% block content %}
+      <h3>Registration</h3>
+
+      <br>
+
+      <form action="" method="post" novalidate>
+          {{ form.hidden_tag() }}
+          <p>
+              <span>{{ form.orientation_date.label }}</span> {{ form.orientation_date(size=5) }}
+          
+              <span>{{ form.output_classes.label }}</span> {{ form.output_classes(size=5) }}
+              <br>
+          </p>
+
+      </form>
+    {% endblock %}
+
+  </body>
+</html>
