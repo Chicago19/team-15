@@ -7,6 +7,67 @@
     <!-- google font api -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+    <style>
+      #button {
+        font-family: sans-serif;
+        font-size: 30px;
+        width: 450px;
+        height: 300px;
+        display: inline-block;
+        margin: 150px;
+      }
+      .redButton{
+        background-color: #e8927c; 
+        color: #da291c;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      .redButton:hover {
+        background-color: #da291c;
+        color:  white;
+        transition: 0.9s;
+      }
+      .greenButton{
+        background-color: #009a44;
+        color: #215732;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      .greenButton:hover {
+        background-color: #215732;
+        color:  white;
+        transition: 0.9s;
+      }
+      .yellowButton{
+        background-color: #F6BE00;
+        color: #ed8b00;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      #longButton{
+        font-family: sans-serif;
+        font-size: 30px;
+        width: 750px;
+        height: 100px;
+        margin-bottom: 50px;
+      }
+      .yellowButton:hover {
+        background-color: #ed8b00;
+        color:  white;
+        transition: 0.9s;
+      }
+
+    </style>
+>>>>>>> 05bff6cb9ff9060861f17b29028020dd51935382
 
   </head>
 
@@ -21,14 +82,14 @@
     <!-- background white block -->
       <div id = "content">
       <div id = "in-line-columns">
-        <button class="button">Prospective Students</a>
-        <button class= "button">Current Students</button>
+        <button id="button" class="redButton">Prospective Students</button>
+        <button id="button" class= "greenButton">Current Students</button>
       </div>
       <div id="centered-content">
         <p>Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input </p>
       </div>
       <div id="centered-button">
-        <button type="button">Resources</button>
+        <button id="longButton" class="yellowButton">Resources</button>
       </div>
       </div>
   </body>
