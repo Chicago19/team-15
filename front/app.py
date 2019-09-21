@@ -86,11 +86,15 @@ def renderLogin():
         }
 
         response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
+        print(response)
 
-        if response['exists']:
-            return(redirect("http://127.0.0.1:5000/currentstudents/"))
-        else:
-            return(redirect("http://127.0.0.1:5000/loginfail/"))
+        try:
+            if response['exists']:
+                return(redirect("http://127.0.0.1:5000/currentstudents/"))
+            else:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+        except:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
 
 
 @app.route('/loginfail/', methods=['GET', 'POST'])
@@ -103,14 +107,13 @@ def renderLoginFail():
         username = request.form['username'].strip()
         password = request.form['password']
 
-        url = "http://0.0.0.0:8080/login/"
-
         # Yes, the x-api-token is weird. No, I don't know why I picked it.
         headers = {
             'content-type': 'application/json',
             'x-api-token': 'jria'
         }
 
+        url = "http://0.0.0.0:8080/login/"
         payload = {
                 'username': username,
                 'password': password
