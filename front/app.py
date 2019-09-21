@@ -10,6 +10,9 @@ import json
 app = Flask(__name__)
 app.config.from_object(Config)
 
+#Static variable used to keep track of current user. Should be cached instead.
+cached_username = None
+
 @app.route('/home/', methods=['GET','POST'])
 def renderHome():
     '''
@@ -53,6 +56,8 @@ def renderAccountCreation():
         }
 
         requests.post(url, headers=headers, data=json.dumps(payload))
+
+        cached_username = username
 
         return(redirect("http://127.0.0.1:5000/demographics/"))
 
@@ -189,6 +194,27 @@ def renderCareerInterestForm():
     if request.method == "GET":
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
+
+    if request.method == "GET":
+        username = cached_username
+        career_interest = request.form['career_interest']
+
+        url = "http://0.0.0.0:8080/careerinterests/"
+
+        # Yes, the x-api-token is weird. No, I don't know why I picked it.
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        payload = {
+            'career_interest':career_interest,
+            'username': cached_username
+        }
+
+        requests.post(url, headers=headers, data=json.dumps(payload))
+
+        return(redirect("http://127.0.0.1:5000/test/"))
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'

@@ -223,6 +223,33 @@ def demographics():
             else:
                 return '405 - Method Not Allowed'
 
+@app.route('/careerinterests/', methods=['POST'])
+def accountCreation():
+    if request.method == 'POST':
+
+        data = request.get_json()
+
+        if data is None:
+            return json.dumps({error: "Error"})
+
+        if request.headers.get('x-api-token') == 'jria':
+
+            career_interest = data['career_interest']
+
+            # If the user doesn't exist yet, put them in!
+            df = pd.read_csv(str(dataFolder))
+            i = df.index[data["username"] == df["username"]]
+
+            if i is not None:
+                df.at[i, 'career_interest'] = career_interest
+
+                df.to_csv(str(dataFolder), index=False)
+
+                return "200 - OK"
+
+            else:
+                return '405 - Method Not Allowed'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8080)
