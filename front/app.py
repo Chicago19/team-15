@@ -31,6 +31,7 @@ def renderCurrentStudents():
 @app.route('/calendar/', methods=["GET"])
 def renderCalendar():
     if request.method == "GET":
+        form = printUpcomingDates()
         return(render_template('calendar_page.html'))
 
 @app.route('/grades/', methods=["GET"])
