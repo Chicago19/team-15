@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, SelectField, SelectMultipleField, validators
 from wtforms.validators import DataRequired, Email, Length, input_required, optional
-
 class AccountCreationForm(FlaskForm):
     '''
     Flask form used to create an account
@@ -10,16 +9,17 @@ class AccountCreationForm(FlaskForm):
     password = StringField('Password', validators=[validators.input_required(), Length(min = 6, message = "Password should be at least 6 characters.")])
     submit = SubmitField('Submit')
 
+
 class DemographicForm(FlaskForm):
-    first_name = StringField(u'First Name', validators=[input_required()])
-    last_name  = StringField(u'Last Name', validators=[input_required()])
-    middle_name  = StringField(u'Middle Name', validators=[optional()])
-    date_of_birth = StringField(u'Date of Birth', validators=[input_required()])
+    first_name = StringField(u'First Name:', validators=[input_required()])
+    last_name  = StringField(u'Last Name:', validators=[input_required()])
+    middle_name  = StringField(u'Middle Name:', validators=[optional()])
+    date_of_birth = StringField(u'Date of Birth:', validators=[input_required()])
     gender = BooleanField() #gender
-    marital_status = SelectField(u'Programming Language', choices=[('Single', 'Single'),
+    marital_status = SelectField(u'Marital Status:', choices=[('Single', 'Single'),
     ('Married', 'Married'), ('Divorced', 'Divorced'), ('Widow', 'Widow')])
     spanish_origin = BooleanField();  #Are you hispanic or latino?
-    country_of_origin = StringField(u'Country of origin', validators=[optional()])
+    country_of_origin = StringField(u'Country of origin:', validators=[optional()])
     racial_group = SelectField(u'Are you from one or more of the following racial groups?',
     choices=[('American Indian or Alaska Native', 'American Indian or Alaska Native'),
     ('Asian', 'Asian'), ('Black or African American', 'Black or African American'),
@@ -45,7 +45,7 @@ class DemographicForm(FlaskForm):
     school_type = BooleanField() #us based schooling or non-us based schooling
     date_last_enrolled = StringField('Month/Year when last enrolled', validators=[validators.input_required()])
     num_school_years_completed = SelectField(u'Number of school years completed',
-    choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3')
+    choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3'),
     ('Grade 4', 'Grade 4'), ('Grade 5', 'Grade 5'), ('Grade 6', 'Grade 6'), ('Grade 7', 'Grade 7'),
     ('Grade 8', 'Grade 8'), ('Grade 9', 'Grade 9'), ('Grade 10', 'Grade 10'), ('Grade 11', 'Grade 11'),
     ('Grade 12', 'Grade 12'), ('High School Diploma', 'High School Diploma'), ('GED', 'GED'),
@@ -72,4 +72,6 @@ class DemographicForm(FlaskForm):
     living_area = SelectField(u'What area do you live in?', choices=[('Rural Area', 'Rural Area'), ('Urban Area', 'Urban Area (with high unemployment)'), ('Neither', 'Neither')])
     how_hear_about = SelectField(u'How did you hear about us?', choices=[('Friend or Relative', 'Friend or Relative'), ('TV, radio, newspaper', 'TV, radio, newspaper'), ('Flyer', 'Flyer'), ('Other', 'Other')])
     add_student_info = SelectMultipleField(u'Additional Student information', choices=[('Low income', 'Low income'), ('Displaced Homemaker', 'Displaced Homemaker'), ('Single Parent', 'Single Parent'), ('Dislocated worker', 'Dislocated worker'), ('Veteran', 'Veteran')])
-    #add_student_info2 =
+    add_student_info2 = SelectMultipleField(u'Please check all that apply', choices=[('Participant in a work based learner project', 'Participant in a work based learner project'), ('Participant in a Family Literacy Program', 'Participant in a Family Literacy Program'),
+    ('Participant in a WorkPlace Literacy program', 'Participant in a WorkPlace Literacy program'), ('Participant in a Volunteer Literacy program','Participant in a Volunteer Literacy program'), ('In Program for the homeless', 'In Program for the homeless'),
+    ('In a correctional facility', 'In a correctional facility'), ('In a community correctional program', 'In a community correctional program'), ('In other institutional setting', 'In other institutional setting')])
