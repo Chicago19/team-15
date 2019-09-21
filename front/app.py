@@ -28,10 +28,10 @@ def renderCurrentStudents():
     if request.method == "GET":
         return(render_template('currentstudents.html'))
 
-@app.route('/Calendar/', methods=["GET"])
+@app.route('/calendar/', methods=["GET"])
 def renderCalendar():
     if request.method == "GET":
-        return(render_template('Calendar.html'))
+        return(render_template('calendar_page.html'))
 
 @app.route('/grades/', methods=["GET"])
 def renderGrades():

@@ -1,6 +1,6 @@
 import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, SelectField, SelectMultipleField, validators
+from wtforms import StringField, TextField, SubmitField, BooleanField, SelectField, SelectMultipleField, validators
 from wtforms.validators import DataRequired, Email, Length, input_required, optional
 class AccountCreationForm(FlaskForm):
     '''
