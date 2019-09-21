@@ -54,10 +54,67 @@
             <span>{{ form.question_13.label }}</span>{{ form.question_13(size=25)}}
             </p>
             
+            <p>
+            <h2>Look at the course catalog. Read the questions. Choose the correct answer.</h2>
             <img src="front/static/img/catalog.png" alt="Text about courses">
-                <span>
+                <span>{{ form.question_missed.label }}</span>{{ form.question_missed(size=25)}}
+                <span>{{ form.question_14.label }}</span>{{ form.question_14(size=25)}}
+                <br>
+                </p>
+            <p>
+            <span>{{ form.question_15.label }}</span>{{ form.question_15(size=25)}}
+            <span>{{ form.question_16.label }}</span>{{ form.question_16(size=25)}}
+            <span>{{ form.question_17.label }}</span>{{ form.question_17(size=25)}}
+            <span>{{ form.question_18.label }}</span>{{ form.question_18(size=25)}}
+            <span>{{ form.question_19.label }}</span>{{ form.question_19(size=25)}}
+            </p>
             
+            <p>
+            <h2>Look at the picture. Read the question. Choose the correct answer.</h2>
+            <img src="front/static/img/fridge.png" alt="picture of two fridges">
+                <span>{{ form.question_20.label }}</span>{{ form.question_20(size=20)}}
+                <br>
+                </p>
+                
+            <p>
+            <span>{{ form.question_21.label }}</span>{{ form.question_21(size=25)}}
+            </p>
+            
+            <p>
+            <h2>Read the story. Choose the correct answers.</h2>
+            <span>{{ form.question_22.label }}</span>{{ form.question_22(size=20)}}
+            <span>{{ form.question_23.label }}</span>{{ form.question_23(size=20)}}
+            </p>
+            
+            <p>
+            <span>{{ form.question_24.label }}</span>{{ form.question_24(size=20)}}
+            <span>{{ form.question_25.label }}</span>{{ form.question_25(size=20)}}
+            <span>{{ form.question_26.label }}</span>{{ form.question_26(size=20)}}
+            <span>{{ form.question_27.label }}</span>{{ form.question_27(size=20)}}
+            <span>{{ form.question_28.label }}</span>{{ form.question_28(size=20)}}
+            <span>{{ form.question_29.label }}</span>{{ form.question_29(size=20)}}
+            <span>{{ form.question_30.label }}</span>{{ form.question_30(size=20)}}
+            </p>
+            
+            <p>
+            <h2>Read the article. Choose the correct answers.</h2>
+            <img src="front/static/img/article.png" alt="article about a family">
+                <span>{{ form.question_31.label }}</span>{{ form.question_31(size=20)}}
+                <span>{{ form.question_32.label }}</span>{{ form.question_32(size=20)}}
+                <br>
+                </p>
+                
+            <p>
+            <span>{{ form.question_33.label }}</span>{{ form.question_33(size=20)}}
+            <span>{{ form.question_34.label }}</span>{{ form.question_34(size=20)}}
+            <span>{{ form.question_35.label }}</span>{{ form.question_35(size=20)}}
+            <span>{{ form.question_36.label }}</span>{{ form.question_36(size=20)}}
+            <span>{{ form.question_37.label }}</span>{{ form.question_37(size=20)}}
+            <span>{{ form.question_38.label }}</span>{{ form.question_38(size=20)}}
+            <span>{{ form.question_39.label }}</span>{{ form.question_39(size=20)}}
         </p>
+        
+        
         </form>
         {% endblock %}
     </body>
