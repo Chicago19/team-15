@@ -95,6 +95,8 @@
                     </div>
                   </header>
         {% block content %}
+        <br>
+        <br>
         <div id="box">
         <h3 class= "banner">Demographics</h3>
 
@@ -103,7 +105,7 @@
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
             <p>
-            <h3>Basic Information</h3>
+            <h5>Basic Information</h5>
             <span >{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
             <br>
             {% for error in form.first_name.errors %}
