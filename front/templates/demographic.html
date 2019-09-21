@@ -34,8 +34,8 @@
                             }
 
                             label {
-                                float: left;
                                 padding-left: 20px;
+                                align: "center";
                                 }
 
 
@@ -51,6 +51,7 @@
 
                             body{
                                 background-color: lightgray;
+
                             }
 
                             img{
@@ -85,7 +86,8 @@
                         </style>
 
     <body>
-            <header>
+        <div style="text-align: center; width:100%;">
+            <header class="banner">
                     <div id ="head-content">
                       <div id = "logo">
                         <img alt = "Poder logo" src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
@@ -94,7 +96,7 @@
                   </header>
         {% block content %}
         <div id="box">
-        <h3>Demographics</h3>
+        <h3 class= "banner">Demographics</h3>
 
         <br>
 
@@ -309,7 +311,7 @@
         </form>
         {% endblock %}
     </div>
-
+    </div>
     </body>
     <footer>
             <H6>Copyright © 2004 - 2019 PODER. All rights reserved. Design CPW
