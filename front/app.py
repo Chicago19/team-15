@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm
+from forms import AccountCreationForm, DemographicForm
 
 
 app = Flask(__name__)
@@ -18,9 +18,19 @@ def renderHome():
 
 @app.route('/accountcreation/', methods=['GET', 'POST'])
 def renderAccountCreation():
-    form = AccountCreationForm()
+    if request.method == "GET":
+        form = AccountCreationForm()
+        return (render_template('accountcreation.html', form = form))
+    elif request.method == "POST":
 
-    return (render_template('accountcreation.html', form = form))
+        return(redirect("http://127.0.0.1:5000/demographics/"))
+
+@app.route('/demographics/', methods=["GET", "POST"])
+def renderDemographicForm():
+    if request.method == "GET":
+        form = DemographicForm()
+        return(render_template('demographic.html', form = form))
+
 
 
 if __name__ == '__main__':
