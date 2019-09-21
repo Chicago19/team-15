@@ -107,6 +107,12 @@
         #blue-background{
           background-color: #0076AB;
           color: white;
+          content-align: "center";
+        }
+        table, th, td {
+          border: 2px solid black;
+          padding: 3px;
+          font-size: 26px;
         }
     </style>
 
@@ -120,8 +126,38 @@
         </div>
       </div>
     </header>
-    <!-- background white block -->
-      
+
+    <div id = "blue-background" >
+
+        <h1 align = "center"> Grades </h1>
+
+      <table align = "center">
+           <thead>
+               <tr>
+                   <th>Course Name</th>
+                   <th>Teacher</th>
+                   <th>Grade</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>Integrated English</td>
+                   <td>Professor Chavez</td>
+                   <td> 100% </td>
+               </tr>
+               <tr>
+                   <td>Latinos in Finance</td>
+                   <td>Professor Kahlo</td>
+                   <td> 98% </td>
+               </tr>
+               <tr>
+                   <td>Workforce Development</td>
+                   <td>Professor Hernandez</td>
+                   <td> 99% </td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
 
   </body>
   <footer>
