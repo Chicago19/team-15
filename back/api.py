@@ -33,17 +33,23 @@ def accountCreation():
             user = data.loc[data["username"] == email]
 
             h = hashlib.md5(password.encode())
+            print(h.hexdigest())
 
             # If the user doesn't exist yet, put them in!
-            if user == None:
-                userdf = pd.DataFrame({"username":username,
-                                        "password": h.hexdigest()})
-                # Append data to bottom of database
-                data.append(userdf)
-                return jsonify("200 - OK")
+            if user.empty:
+                # userdf = pd.DataFrame({"username":[email],
+                #                         "password": [h.hexdigest()]})
+                # # Append data to bottom of database
+                # data.append(userdf, ignore_index=False, verify_integrity=False, sort=None)
+
+                data = data.append({'username' : email , 'password' : h.hexdigest()} , ignore_index=True)
+
+                data.to_csv(str(dataFolder))
+
+                return "200 - OK"
 
             else:
-                return jsonify('405 - Method Not Allowed')
+                return '405 - Method Not Allowed'
 
 
 if __name__ == '__main__':

@@ -44,6 +44,9 @@ def renderAccountCreation():
 
         requests.post(url, headers=headers, data=json.dumps(payload))
 
+        # form = DemographicForm()
+        # return(render_template('demographic.html', form = form))
+
         return(redirect("http://127.0.0.1:5000/demographics/"))
 
 @app.route('/demographics/', methods=["GET", "POST"])
