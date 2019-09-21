@@ -55,6 +55,18 @@ class DemographicForm(FlaskForm):
     occupation = StringField('If employed, what is your occupation?', validators=[validators.optional()])
     employer_name = StringField('Employer name', validators=[validators.optional()])
     employer_address = StringField('Employer address', validators=[validators.optional()])
-    employment_status = SelectField('Employment status', choices=[('Not in labor force', 'Not in labor force'), ('Employed part-time', 'Employed part-time'), ('Unemployed', 'Unemployed'), ('Employed full time', 'Employed full time')])
+    employment_status = SelectField('Employment status', choices=[('Not in labor force', 'Not in labor force'),
+    ('Employed part-time', 'Employed part-time'), ('Unemployed', 'Unemployed'), ('Employed full time', 'Employed full time')])
+
     hours_per_week = StringField('If Employed, hours per week', validators=[validators.optional()])
     work_phone = StringField('Work Phone#', validators=[validators.optional()])
+
+    #Student status
+    num_dependents_minor = StringField('Number of Dependents-minor children', validators=[validators.optional()])
+    num_dependents_other = StringField('Number of Dependents-other', validators=[validators.optional()])
+    yearly_income = num_dependents_minor = StringField('Yearly household income', validators=[validators.input_required()])
+    public_assistance = BooleanField() #do you recieve public assistance?
+    public_assistance_number = StringField('If yes, public assistance number', validators=[validators.optional()]
+    disability = SelectField(u'Do you have a disability?', choices=[('Not Disabled','Not Disabled'), ('Physical Impairment', 'Physical Impairment'),
+    ('Mental Impairment', 'Mental Impairment'), ('Learning Impairment', 'Learning Impairment'), ('Multiple disabilities', 'Multiple disabilities')])
+    
