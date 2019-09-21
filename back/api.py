@@ -2,27 +2,49 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps
-from flask.ext.jsonpify import jsonify
+from flask import jsonify
 from pathlib import Path
 import hashlib
 import pandas as pd
 
 
 app = Flask(__name__)
-api = Api(app)
-dataFolder = Path('data' / 'data.csv')
-solutionsFolder = Path('data' / 'solutions.csv')
+
+dataFolder = Path.cwd() / 'data' / 'data.csv'
+solutionsFolder = Path.cwd() / 'data' / 'solutions.csv'
 
 
-class UserId(Resource):
-    def post(self, username, password):
-        pd.read_csv(str(dataFolder))
-        query = conn.execute("select * from employees where UserId =%d "  %int(user_id))
-        result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
-        return jsonify(result)
+@app.route('/accountcreation/', methods=['POST'])
+def accountCreation():
+    if request.method == 'POST':
 
-api.add_resource(UserId, '/employees/<employee_id>') # Route_3
+        data = request.get_json()
+
+        if data is None:
+            return json.dumps({error: "Error"})
+
+        if request.headers.get('x-api-token') == 'jria':
+
+            email = data['username']
+            password = data['password']
+
+            data = pd.read_csv(str(dataFolder))
+
+            user = data.loc[data["username"] == email]
+
+            h = hashlib.md5(password.encode())
+
+            # If the user doesn't exist yet, put them in!
+            if user == None:
+                userdf = pd.DataFrame({"username":username,
+                                        "password": h.hexdigest()})
+                # Append data to bottom of database
+                data.append(userdf)
+                return jsonify("200 - OK")
+
+            else:
+                return jsonify('405 - Method Not Allowed')
 
 
 if __name__ == '__main__':
-     app.run(port='5002')
+    app.run(host='0.0.0.0',port=8080)

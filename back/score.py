@@ -20,3 +20,7 @@ def score(db, email):
 
     # Update score field in db
     data.loc[data["username"] == email, 'score'] = score
+
+    data.to_csv(str(dataPath))
+
+    return score
