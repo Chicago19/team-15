@@ -104,3 +104,23 @@ class DemographicForm(FlaskForm):
     internet_access_elsewhere = BooleanField() #Do you have internet access elsewhere?
 
     why_learn_english = SelectMultipleField('Why do you want to learn english?', choices=[('GED', 'GED'), ('Job', 'Job'), ('Citizenship', 'Citizenship'), ('To get an education', 'To get an education'), ('Move forward at work', 'Move forward at work'), ('Help kids at school', 'Help kids at school')])
+
+class CareerInterest(FlaskForm):
+    career_interest = SelectField('Select one field that is a career cluster you are interested in pursuing', choices= [
+    ('Agriculture Food & Natural Resources', 'Agriculture Food & Natural Resources'),
+    ('Architecture & Construction', 'Architecture & Construction'),
+    ('Arts, A/V Technology & Communication', 'Arts, A/V Technology & Communication'),
+    ('Business Management & Administration', 'Business Management & Administration'),
+    ('Education & Training', 'Education & Training'),
+    ('Finance', 'Finance'),
+    ('Government & Public Administration', 'Government & Public Administration'),
+    ('Health Sciences', 'Health Sciences'),
+    ('Hospitality and Tourism', 'Hospitality & Tourism'),
+    ('Human Services', 'Human Services'),
+    ('Information Technology', 'Information Technology'),
+    ('Law, Public Safety, Corrections & Security', 'Law, Public Safety, Corrections & Security'),
+    ('Manufacturing', 'Manufacturing'),
+    ('Marketing', 'Marketing'),
+    ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
+    ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
+    ])
