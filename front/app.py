@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm, CareerInterest
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
 
 
 app = Flask(__name__)
@@ -36,6 +36,12 @@ def renderCareerInterestForm():
     if request.method == "GET":
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
+
+@app.route('/test/', methods=["GET", "POST"])
+def renderTestForm():
+    if request.method == "GET":
+        form = PlacementTest()
+        return(render_template('test.html', form = form))
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
