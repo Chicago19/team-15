@@ -53,6 +53,7 @@ def renderDemographicForm():
         return(render_template('demographic.html', form = form))
 
     elif request.method == "POST":
+        username = request.form['username']
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         middle_name = request.form['middle_name']
@@ -84,8 +85,92 @@ def renderDemographicForm():
         occupation = request.form['occupation']
         employer_name = request.form['employer_name']
         employer_address = request.form['employer_address']
+        employment_status = request.form['employment_status']
+
+        hours_per_week = request.form['hours_per_week']
+        work_phone = request.form['work_phone']
+
+        num_dependents_minor = request.form['num_dependents_minor']
+        num_dependents_other = request.form['num_dependents_other']
+        yearly_income = request.form['yearly_income']
+        public_assistance = request.form['public_assistance']
+        public_assistance_number = request.form['public_assistance_number']
+        disability = request.form['disability']
+
+        living_area = request.form['living_area']
+        how_hear_about = request.form['how_hear_about']
+        add_student_info = request.form['add_student_info']
+        add_student_info2 = request.form['add_student_info2']
+
+        children = request.form['children']
+        num_children = request.form['num_children']
+        age_children = request.form['age_children']
+        school_type = request.form['school_type']
+        take_care_of_kids = request.form['take_care_of_kids']
+        immigration_status = request.form['immigration_status']
+        government_aid = request.form['government_aid']
+
+        checking_acc = request.form['checking_acc']
+        savings_acc = request.form['savings_acc']
+        library_card = request.form['library_card']
+
+        english_classes = request.form['english_classes']
+        english_class_details = request.form['english_class_details']
+
+        work = request.form['work']
+        work_benefits = request.form['work_benefits']
+
+        house_or_rent = request.form['house_or_rent']
+
+        smartphone = request.form['smartphone']
+        tablet = request.form['tablet']
+        computer = request.form['computers']
+        internet = request.form['internet']
+        internet_access = request.form['internet_access']
+        internet_access_elsewhere = request.form['internet_access_elsewhere']
+
+        why_learn_english = request.form['why_learn_english']
 
 
+        url = "http://0.0.0.0:8080/demographics/"
+
+        # Yes, the x-api-token is weird. No, I don't know why I picked it.
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        payload = {
+                'username':username,'first_name':first_name,'last_name':last_name,
+                'middle_name':middle_name,'date_of_birth':date_of_birth,
+                'gender':gender,'marital_status':marital_status,'spanish_origin':spanish_origin,
+                'country_of_origin':country_of_origin,'racial_group':racial_group,
+                'english_second_lang':english_second_lang,'native_lang':native_lang,
+                'address':address,'city':city,'state':state,'zip_code':zip_code,
+                'home_phone':home_phone,'cell_phone':cell_phone,'emergency_contact_name':emergency_contact_name,
+                'emergency_contact_num':emergency_contact_num,'emergency_contact_relation':emergency_contact_relation,
+                'max_grade_completed':max_grade_completed,'school_type':school_type,
+                'date_last_enrolled':date_last_enrolled,'num_school_years_completed':num_school_years_completed,
+                'occupation':occupation,'employer_name':employer_name,
+                'employer_address':employer_address,'employment_status':employment_status,
+                'hours_per_week':hours_per_week,'work_phone':work_phone,
+                'num_dependents_minor':work_phone,'num_dependents_other':num_dependents_other,
+                'yearly_income':yearly_income,'public_assistance':public_assistance,
+                'public_assistance_number':public_assistance_number,'disability':disability,
+                'living_area':living_area,'how_hear_about':how_hear_about,
+                'add_student_info':add_student_info,'add_student_info2':add_student_info2,
+                'children':children,'num_children':num_children,'age_children':age_children,
+                'school_type':school_type,'take_care_of_kids':take_care_of_kids,
+                'immigration_status':immigration_status,'government_aid':government_aid,
+                'checking_acc':checking_acc,'savings_acc':savings_acc,'library_card':library_card,
+                'english_classes':english_classes,'english_class_details':english_class_details,
+                'work':work,'work_benefits':work_benefits,'house_or_rent':house_or_rent,
+                'smartphone':smartphone,'tablet':tablet,'computer':computer,internet:'internet',
+                'internet_access':internet_access,'internet_access_elsewhere':internet_access_elsewhere,
+                why_learn_english:'why_learn_english'
+        }
+
+        requests.post(url, headers=headers, data=json.dumps(payload))
 
         return(redirect("http://127.0.0.1:5000/careerinterests/"))
 
