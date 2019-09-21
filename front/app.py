@@ -34,7 +34,7 @@ def renderGrades():
         return(render_template('grades.html'))
 
 @app.route('/editprofile/', methods=["GET"])
-def renderGrades():
+def renderEditProfile():
     if request.method == "GET":
         return(render_template('editprofile.html'))
 
