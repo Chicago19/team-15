@@ -22,23 +22,63 @@
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
             <p>
-            <span>{{ form.first_name.label }}</span> {{ form.first_name(size=32) }}
+            <h3>Basic Information</h3>
+            <span>{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
             <br>
             {% for error in form.first_name.errors %}
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
-            <span>{{ form.middle_name.label }}</span> {{ form.middle_name(size=32) }}
+            <span>{{ form.middle_name.label }}</span> {{ form.middle_name(size=25) }}
             <br>
             </p>
             <span>{{ form.last_name.label }}</span> {{
-                form.last_name(size=32) }}
+                form.last_name(size=25) }}
+            <br>
+            {% for error in form.last_name.errors %}
+            <span style="colorL red;">[{{ error }}]</span>
+            {% endfor %}
             <br>
             <span>{{ form.date_of_birth.label }}</span> {{
-                form.date_of_birth(size=32) }}
+                form.date_of_birth(size=25) }}
             <br>
+            <span>{{ form.gender.label }}</span> {{
+                form.gender(size=25) }}
             </p>
-            <p>{{ form.submit() }}</p>
+            <span>{{ form.marital_status.label }}</span>{{
+                form.marital_status(size=4) }}
+            </p>
+            <span>{{ form.spanish_origin.label }}</span>{{
+                form.spanish_origin(size=32) }}
+            </p>
+            <span>{{ form.country_of_origin.label }}</span>{{
+                form.country_of_origin(size=25) }}
+            </p>
+            <span>{{ form.racial_group.label }}</span>{{
+                form.racial_group(size=4) }}
+            </p>
+            <span>{{ form.english_second_lang.label }}</span>{{
+                form.english_second_lang(size = 32)}}
+            </p>
+            <span>{{ form.native_lang.label }}</span>{{
+                form.native_lang(size = 32)}}
+            <h3>Contact Information</h3>
+            </p>
+            <span>{{ form.address.label }}</span>{{
+                form.address(size = 32)}}
+            </p>
+            <span>{{ form.city.label }}</span>{{
+                form.city(size = 32)}}
+            </p>
+            <span>{{ form.state.label }}</span>{{
+                form.state(size = 32)}}
+            </p>
+            <span>{{ form.zip_code.label }}</span>{{
+                form.zip_code(size = 32)}}
+            </p>
+            <span>{{ form.home_phone.label }}</span>{{
+                form.home_phone(size = 32)}}
+            </p>
         </form>
         {% endblock %}
         
