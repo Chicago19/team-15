@@ -183,10 +183,7 @@ class PlacementTest(FlaskForm):
     question_38 = SelectField("Sona doesn't use her air conditioning often ____ it's too expensive.", choices = [('a', 'although'), ('b', 'even though'), ('c', 'because of'), ('d', 'because')])
     question_39 = SelectField("These days, nobody wants to buy a car ____ a lot of gas.", choices = [('a', 'that uses'),('b', "it doesn't use"), ('c', "that it doesn't use"), ('d', 'who uses')])
     submit = SubmitField('Submit')
-<<<<<<< HEAD
 
-=======
->>>>>>> css
 
 orientation = ""
 
