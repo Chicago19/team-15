@@ -53,7 +53,40 @@ def renderDemographicForm():
         return(render_template('demographic.html', form = form))
 
     elif request.method == "POST":
-        # ADD API CALL
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        middle_name = request.form['middle_name']
+        date_of_birth = request.form['date_of_birth']
+        gender = request.form['date_of_birth']
+        marital_status = request.form['marital_status']
+        spanish_origin = request.form['spanish_origin']
+        country_of_origin = request.form['country_of_origin']
+        racial_group = request.form['racial_group']
+
+        english_second_lang = request.form['english_second_lang']
+        native_lang = request.form['native_lang']
+
+        address = request.form['address']
+        city = request.form['city']
+        state = request.form['state']
+        zip_code = request.form['zip_code']
+        home_phone = request.form['home_phone']
+        cell_phone = request.form['cell_phone']
+        emergency_contact_name = request.form['emergency_contact_name']
+        emergency_contact_num = request.form['emergency_contact_num']
+        emergency_contact_relation = request.form['emergency_contact_relation']
+
+        max_grade_completed = request.form['max_grade_completed']
+        school_type = request.form['school_type']
+        date_last_enrolled = request.form['date_last_enrolled']
+        num_school_years_completed = request.form['num_school_years_completed']
+
+        occupation = request.form['occupation']
+        employer_name = request.form['employer_name']
+        employer_address = request.form['employer_address']
+
+
+
         return(redirect("http://127.0.0.1:5000/careerinterests/"))
 
 @app.route('/careerinterests/', methods=["GET", "POST"])
@@ -64,7 +97,6 @@ def renderCareerInterestForm():
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
-    threading.Timer(2, lambda: webbrowser.open(url, new=1)).start()
     app.run()
 
  # Pizarron
