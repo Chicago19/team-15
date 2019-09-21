@@ -52,6 +52,10 @@ def renderDemographicForm():
         form = DemographicForm()
         return(render_template('demographic.html', form = form))
 
+    elif request.method == "POST":
+        # ADD API CALL
+        return(redirect("http://127.0.0.1:5000/careerinterests/"))
+
 @app.route('/careerinterests/', methods=["GET", "POST"])
 def renderCareerInterestForm():
     if request.method == "GET":
