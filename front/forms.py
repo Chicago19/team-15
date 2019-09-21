@@ -75,3 +75,52 @@ class DemographicForm(FlaskForm):
     add_student_info2 = SelectMultipleField(u'Please check all that apply', choices=[('Participant in a work based learner project', 'Participant in a work based learner project'), ('Participant in a Family Literacy Program', 'Participant in a Family Literacy Program'),
     ('Participant in a WorkPlace Literacy program', 'Participant in a WorkPlace Literacy program'), ('Participant in a Volunteer Literacy program','Participant in a Volunteer Literacy program'), ('In Program for the homeless', 'In Program for the homeless'),
     ('In a correctional facility', 'In a correctional facility'), ('In a community correctional program', 'In a community correctional program'), ('In other institutional setting', 'In other institutional setting')])
+
+    children = BooleanField()
+    num_children = StringField(u'How many children do you have?', validators=[validators.optional()])
+    age_children = StringField(u'How old are they?', validators=[validators.optional()])
+    school_type = SelectField(u'What type of school do they attend?', choices=[('Public', 'Public'), ('Private', 'Private'), ('Charter', 'Charter'), ('None', 'None')])
+    take_care_of_kids = BooleanField() #Do you take good care of your kids?
+    immigration_status = SelectField(u'Immigration status', choices=[('Citizen', 'Citizen'), ('Resident', 'Resident'), ('Visitor', 'Visitor'), ('None', 'None')])
+    government_aid = SelectMultipleField(u'If you recieve aid from the government, which ones are they?', choices=[('TANF', 'TANF'), ('Tax Credit', 'Tax Credit'), ('SNAP/Link', 'SNAP/Link'), ('WIC', 'WIC'), ('Medical Card', 'Medical Card'), ('Medicare', 'Medicare'), ('others', 'others')])
+
+    checking_acc = BooleanField() #Do you have a checkign account?
+    savings_acc = BooleanField() #Do you have a savings account?
+    library_card = BooleanField() #Do you have a library card?
+
+    english_classes = BooleanField() #Have you taken english language classes?
+    english_class_details = StringField(u'Where and what year?', validators=[validators.optional()])
+
+    work = StringField(u'If you work, what is your job?', validators=[validators.optional()])
+    work_benefits = SelectMultipleField(u'If you work, whar benefits do you recieve?', choices=[('Medical Insurance', 'Medical Insurance'), ('Vacations/Holidays/Sickeness/Maternity/Personal', 'Vacations/Holidays/Sickeness/Maternity/Personal'), ('Flexiible hours', 'Flexible hours'), ('Retirement plan', 'Retirement plan'), ('Other', 'Other')])
+
+    house_or_rent = BooleanField() #Do you own a house or pay rent?
+
+    smartphone = BooleanField() #Do you have a smartphone
+    tablet = BooleanField() #Do you have a tablet
+    computer = BooleanField() #Do you have a computer
+    internet = BooleanField() #Have you ever used the internet?
+    internet_access = BooleanField() #Do you have internet access at home?
+    internet_access_elsewhere = BooleanField() #Do you have internet access elsewhere?
+
+    why_learn_english = SelectMultipleField('Why do you want to learn english?', choices=[('GED', 'GED'), ('Job', 'Job'), ('Citizenship', 'Citizenship'), ('To get an education', 'To get an education'), ('Move forward at work', 'Move forward at work'), ('Help kids at school', 'Help kids at school')])
+
+class CareerInterest(FlaskForm):
+    career_interest = SelectField('Select one field that is a career cluster you are interested in pursuing', choices= [
+    ('Agriculture Food & Natural Resources', 'Agriculture Food & Natural Resources'),
+    ('Architecture & Construction', 'Architecture & Construction'),
+    ('Arts, A/V Technology & Communication', 'Arts, A/V Technology & Communication'),
+    ('Business Management & Administration', 'Business Management & Administration'),
+    ('Education & Training', 'Education & Training'),
+    ('Finance', 'Finance'),
+    ('Government & Public Administration', 'Government & Public Administration'),
+    ('Health Sciences', 'Health Sciences'),
+    ('Hospitality and Tourism', 'Hospitality & Tourism'),
+    ('Human Services', 'Human Services'),
+    ('Information Technology', 'Information Technology'),
+    ('Law, Public Safety, Corrections & Security', 'Law, Public Safety, Corrections & Security'),
+    ('Manufacturing', 'Manufacturing'),
+    ('Marketing', 'Marketing'),
+    ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
+    ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
+    ])
