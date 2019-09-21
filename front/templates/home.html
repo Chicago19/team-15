@@ -7,14 +7,31 @@
     <!-- google font api -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
-    <!-- css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
 
   </head>
 
   <body>
-
+    <header>
+      <div id ="head-content">
+        <div id = "logo">
+          <img src="{{ url_for('static', filename='images/poderTranslogo.png') }}">
+        </div>
+      </div>
+    </header>
+    <!-- background white block -->
+    <div id= "content">
+      <div id = "in-line-columns">
+        <button class="button">Prospective Students</a>
+        <button class= "button">Current Students</button>
+      </div>
+      <div id="centered-content">
+        <p>Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input </p>
+      </div>
+      <div id="centered-button">
+        <button type="button">Resources</button>
+      </div>
+    </div>
 
   </body>
 </html>
