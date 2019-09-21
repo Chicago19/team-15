@@ -37,10 +37,6 @@ def accountCreation():
 
             # If the user doesn't exist yet, put them in!
             if user.empty:
-                # userdf = pd.DataFrame({"username":[email],
-                #                         "password": [h.hexdigest()]})
-                # # Append data to bottom of database
-                # data.append(userdf, ignore_index=False, verify_integrity=False, sort=None)
 
                 data = data.append({'username' : email , 'password' : h.hexdigest()} , ignore_index=True)
 
