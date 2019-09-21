@@ -6,6 +6,7 @@ from flask import jsonify
 from pathlib import Path
 import hashlib
 import pandas as pd
+from score.py import score
 
 
 app = Flask(__name__)
@@ -222,6 +223,107 @@ def demographics():
 
             else:
                 return '405 - Method Not Allowed'
+
+@app.route('/test/', methods=['POST'])
+def test_solution():
+    if request.method == 'POST':
+        data = request.get_json()
+    
+    if data is None:
+        return json.dumps({error: "Error"})
+        
+    if request.headers.get('x-api-token') == 'jria':
+        question_1 = data['question_1']
+        question_2 = data['question_2']
+        question_3 = data['question_3']
+        question_4 = data['question_4']
+        question_5 = data['question_5']
+        question_6 = data['question_6']
+        question_7 = data['question_7']
+        question_8 = data['question_8']
+        question_9 = data['question_9']
+        question_10 = data['question_10']
+        question_11 = data['question_11']
+        question_12 = data['question_12']
+        question_13 = data['question_13']
+        question_missed = data['question_missed']
+        question_14 = data['question_14']
+        question_15 = data['question_15']
+        question_16 = data['question_16']
+        question_17 = data['question_17']
+        question_18 = data['question_18']
+        question_19 = data['question_19']
+        question_20 = data['question_20']
+        question_21 = data['question_21']
+        question_22 = data['question_22']
+        question_23 = data['question_23']
+        question_24 = data['question_24']
+        question_25 = data['question_25']
+        question_26 = data['question_26']
+        question_27 = data['question_27']
+        question_28 = data['question_28']
+        question_29 = data['question_29']
+        question_30 = data['question_30']
+        question_31 = data['question_31']
+        question_32 = data['question_32']
+        question_33 = data['question_33']
+        question_34 = data['question_34']
+        question_35 = data['question_35']
+        question_36 = data['question_36']
+        question_37 = data['question_37']
+        question_38 = data['question_38']
+        question_39 = data['question_39']
+
+        i = df.index[data["username"] == df["username"]]
+        df = pd.read_csv(str(dataFolder))
+
+    if i is at None:
+        df.at[i, 'question_1'] = question_1
+        df.at[i, 'question_2'] = question_2
+        df.at[i, 'question_3'] = question_3
+        df.at[i, 'question_4'] = question_4
+        df.at[i, 'question_5'] = question_5
+        df.at[i, 'question_6'] = question_6
+        df.at[i, 'question_7'] = question_7
+        df.at[i, 'question_8'] = question_8
+        df.at[i, 'question_9'] = question_9
+        df.at[i, 'question_10'] = question_10
+        df.at[i, 'question_11'] = question_11
+        df.at[i, 'question_12'] = question_12
+        df.at[i, 'question_13'] = question_13
+        df.at[i, 'question_missing'] = question_missing
+        df.at[i, 'question_14'] = question_14
+        df.at[i, 'question_15'] = question_15
+        df.at[i, 'question_16'] = question_16
+        df.at[i, 'question_17'] = question_17
+        df.at[i, 'question_18'] = question_18
+        df.at[i, 'question_19'] = question_19
+        df.at[i, 'question_20'] = question_20
+        df.at[i, 'question_21'] = question_21
+        df.at[i, 'question_22'] = question_22
+        df.at[i, 'question_23'] = question_23
+        df.at[i, 'question_24'] = question_24
+        df.at[i, 'question_25'] = question_25
+        df.at[i, 'question_26'] = question_26
+        df.at[i, 'question_27'] = question_27
+        df.at[i, 'question_28'] = question_28
+        df.at[i, 'question_29'] = question_29
+        df.at[i, 'question_30'] = question_30
+        df.at[i, 'question_31'] = question_31
+        df.at[i, 'question_32'] = question_32
+        df.at[i, 'question_33'] = question_33
+        df.at[i, 'question_34'] = question_34
+        df.at[i, 'question_35'] = question_35
+        df.at[i, 'question_36'] = question_36
+        df.at[i, 'question_37'] = question_37
+        df.at[i, 'question_38'] = question_38
+        df.at[i, 'question_39'] = question_39
+
+        df.to_csv(str(dataFolder), index=False)
+        
+        score(df, df['username'])
+    
+        return "200 - OK"
 
 
 if __name__ == '__main__':
