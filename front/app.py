@@ -91,7 +91,6 @@ def renderLogin():
         }
 
         response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
-        print(response)
 
         try:
             if response['exists']:

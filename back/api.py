@@ -33,7 +33,6 @@ def accountCreation():
             user = df.loc[df["username"] == email]
 
             h = hashlib.md5(password.encode())
-            print(h.hexdigest())
 
             # If the user doesn't exist yet, put them in!
             if user.empty:
@@ -74,8 +73,11 @@ def login():
                     last_name = df.at[i, "last_name"]
                     exists = True
                     return jsonify(first_name = first_name, last_name=last_name, exists=exists)
+                else:
+                    return jsonify(exists = False)
 
-            return jsonify(exists = False)
+            else:
+                return jsonify(exists = False)
 
 
 @app.route('/demographics/', methods=['POST'])
