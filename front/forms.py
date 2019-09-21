@@ -9,3 +9,6 @@ class AccountCreationForm(FlaskForm):
     username = StringField('Email Address', validators=[DataRequired(), Email()])
     password = StringField('Password', validators=[DataRequired(), Length(min = 6, message = "Password should be at least 6 characters.")])
     submit = SubmitField('Submit')
+
+class DashboardForm(FlaskForm):
+    grades = SubmitField('Grades')
