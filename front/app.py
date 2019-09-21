@@ -15,6 +15,15 @@ def renderHome():
 
     return (render_template('home.html') )
 
+@app.route('/dashboard/', methods=['GET','POST'])
+def renderDashboard():
+    '''
+    Renders a viewable web application on your port:
+    http://127.0.0.1:5000/home
+    '''
+
+    return (render_template('currentstudents.html') )
+
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
     threading.Timer(2, lambda: webbrowser.open(url, new=1)).start()
