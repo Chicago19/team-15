@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PODER</title>
+    <title>Failed Login</title>
     <!-- boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- google font api -->
@@ -35,9 +35,9 @@
         }
 
         label {
-            float: left;
-            padding-left: 20px;
-            }
+          padding-left: 20px;
+          text-align: center;
+          }
 
 
         input[type=text]:focus {
@@ -84,19 +84,22 @@
         }
 
     </style>
-
+<div style="text-align: center; width:100%;">
     <header>
             <div id ="head-content">
               <div id = "logo">
                 <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
-                  <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+                  <img alt = "Poder logo" src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
                 </a>
               </div>
             </div>
           </header>
 
-    <div align = "center"> <p background-color = "red" color = "white"> Login failed. </p>
-    </div>
+          <br>
+          <br>
+
+    <div align = "center"> <p style="color:red;">Login failed.</p></div>
+
     {% block content %}
       <h3>Login</h3>
 
@@ -118,6 +121,6 @@
           <p>{{ form.submit() }}</p>
       </form>
     {% endblock %}
-
+  </div>
   </body>
 </html>

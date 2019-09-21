@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PODER</title>
+    <title>Account Creation</title>
     <!-- boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- google font api -->
@@ -11,9 +11,97 @@
     <!-- css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+<<<<<<< HEAD
   </head>
 
   <body>
+=======
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <style>
+
+    input[type=text] {
+        width: 20%;
+        padding: 5px 5px;
+        margin: auto;
+        text-align: center;
+        box-sizing: border-box;
+        border: 3px solid #ccc;
+              -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        }
+
+        box{
+            grid-template-columns: 120px 120px 120px;
+        }
+
+
+        input[type=text]:focus {
+        border: 3px solid #555;
+        }
+
+        label {
+          padding-left: 20px;
+          text-align: center;
+          }
+
+
+        header {
+            background-color: white;
+            color: white;
+        }
+
+        body{
+            background-color: lightgray;
+            align-items: center;
+        }
+
+        img{
+            width: 500px;
+        }
+
+        #footer-image{
+            width: 100px;
+        }
+
+        footer{
+            padding-top: 10px;
+            background-color: #0076AB;
+            color: white;
+            padding-bottom: 10px;
+        }
+
+
+        input[type=submit] {
+            padding:5px 15px;
+            background:#2196F3;
+            border:0 none;
+            cursor:pointer;
+            color: white;
+        }
+
+    </style>
+
+  </head>
+
+  <body>
+      <div style="text-align: center; width:100%;">
+    <header>
+            <div id ="head-content">
+              <div id = "logo">
+                <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
+                  <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}" alt = "Poder logo">
+                </a>              '
+              </div>
+            </div>
+          </header>
+
+        <br>
+        <br>
+
+>>>>>>> 8e9df3225923ad0da96260ac3d0de0fbcdc31ad2
     {% block content %}
       <h3>Registration</h3>
 
@@ -35,6 +123,6 @@
           <p>{{ form.submit() }}</p>
       </form>
     {% endblock %}
-
+</div>
   </body>
 </html>
