@@ -14,7 +14,27 @@
   </head>
 
   <body>
+    {% block content %}
+      <h3>Registration</h3>
 
+      <br>
+      
+      <form action="" method="post" novalidate>
+          {{ form.hidden_tag() }}
+          <p>
+              <span>{{ form.username.label }}</span> {{ form.username(size=32) }}
+              <br>
+              {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+              <br>
+              <span>{{ form.password.label }}</span> {{ form.password(size=32) }}
+              <br>
+          </p>
+
+          <p>{{ form.submit() }}</p>
+      </form>
+    {% endblock %}
 
   </body>
 </html>
