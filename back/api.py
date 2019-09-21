@@ -256,7 +256,7 @@ def demographics():
                 return '405 - Method Not Allowed'
 
 @app.route('/careerinterests/', methods=['POST'])
-def accountCreation():
+def careerInterests():
     if request.method == 'POST':
 
         data = request.get_json()
