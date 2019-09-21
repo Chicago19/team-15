@@ -92,11 +92,11 @@ def renderLogin():
             return(redirect("http://127.0.0.1:5000/login_fail/"))
 
 
-@app.route('/login_fail/', methods=['GET', 'POST'])
+@app.route('/loginfail/', methods=['GET', 'POST'])
 def renderLoginFail():
     if request.method == "GET":
         form = loginForm()
-        return (render_template('login_fail.html', form = form))
+        return (render_template('failedlogin.html', form = form))
 
     elif request.method == "POST":
         username = request.form['username'].strip()
@@ -120,7 +120,7 @@ def renderLoginFail():
         if response.exists:
             return(redirect("http://127.0.0.1:5000/currentstudents/"))
         else:
-            return(redirect("http://127.0.0.1:5000/login_fail/"))
+            return(redirect("http://127.0.0.1:5000/loginfail/"))
 
 
 @app.route('/demographics/', methods=["GET", "POST"])
