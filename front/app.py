@@ -11,6 +11,9 @@ from forms import AccountCreationForm, DemographicForm, CareerInterest
 app = Flask(__name__)
 app.config.from_object(Config)
 
+#Static variable used to keep track of current user. Should be cached instead.
+cached_username = None
+
 @app.route('/home/', methods=['GET','POST'])
 def renderHome():
     '''
@@ -29,6 +32,15 @@ def renderCurrentStudents():
 def renderGrades():
     if request.method == "GET":
         return(render_template('grades.html'))
+
+@app.route('/resources/', methods=['GET','POST'])
+def renderResources():
+        return(render_template('resources.html'))
+
+@app.route('/editprofile/', methods=["GET"])
+def renderEditProfile():
+    if request.method == "GET":
+        return(render_template('editprofile.html'))
 
 @app.route('/accountcreation/', methods=['GET', 'POST'])
 def renderAccountCreation():
@@ -55,7 +67,76 @@ def renderAccountCreation():
 
         requests.post(url, headers=headers, data=json.dumps(payload))
 
+        cached_username = username
+
         return(redirect("http://127.0.0.1:5000/demographics/"))
+
+@app.route('/login/', methods=['GET', 'POST'])
+def renderLogin():
+    if request.method == "GET":
+        form = AccountCreationForm()
+        return (render_template('login.html', form = form))
+
+    elif request.method == "POST":
+        username = request.form['username'].strip()
+        password = request.form['password']
+
+        url = "http://0.0.0.0:8080/login/"
+
+        # Yes, the x-api-token is weird. No, I don't know why I picked it.
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        payload = {
+                'username': username,
+                'password': password
+        }
+
+        response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
+
+        try:
+            if response['exists']:
+                return(redirect("http://127.0.0.1:5000/currentstudents/"))
+            else:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+        except:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+
+
+@app.route('/loginfail/', methods=['GET', 'POST'])
+def renderLoginFail():
+    if request.method == "GET":
+        form = AccountCreationForm()
+        return (render_template('failedlogin.html', form = form))
+
+    elif request.method == "POST":
+        username = request.form['username'].strip()
+        password = request.form['password']
+
+        # Yes, the x-api-token is weird. No, I don't know why I picked it.
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        url = "http://0.0.0.0:8080/login/"
+        payload = {
+                'username': username,
+                'password': password
+        }
+
+        response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
+
+        try:
+            if response['exists']:
+                return(redirect("http://127.0.0.1:5000/currentstudents/"))
+            else:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+        except:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+
 
 @app.route('/demographics/', methods=["GET", "POST"])
 def renderDemographicForm():
@@ -186,16 +267,18 @@ def renderDemographicForm():
         return(redirect("http://127.0.0.1:5000/careerinterests/"))
 
 @app.route('/careerinterests/', methods=["GET", "POST"])
-def renderCareerInterestForm():
+def renderCareerInterest():
     if request.method == "GET":
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
+
 
 @app.route('/test/', methods=["GET", "POST"])
 def renderTestForm():
     if request.method == "GET":
         form = PlacementTest()
         return(render_template('test.html', form = form))
+
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
