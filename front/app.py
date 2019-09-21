@@ -19,6 +19,16 @@ def renderHome():
 
     return (render_template('home.html') )
 
+@app.route('/currentstudents/', methods=["GET"])
+def renderCurrentStudents():
+    if request.method == "GET":
+        return(render_template('currentstudents.html'))
+
+@app.route('/grades/', methods=["GET"])
+def renderGrades():
+    if request.method == "GET":
+        return(render_template('grades.html'))
+
 @app.route('/accountcreation/', methods=['GET', 'POST'])
 def renderAccountCreation():
     if request.method == "GET":

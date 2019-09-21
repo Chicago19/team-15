@@ -10,6 +10,13 @@
 
     <!-- css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  </head>
+
+  <body>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
 
     <style>
 
@@ -89,7 +96,7 @@
       body {
           text-align: center;
           align-content: center;
-          background-image: url("/static/img/chicago.jpg");
+          background-image: url("/static/img/buildings.jpg");
           background-repeat: no-repeat;
           background-position: center;
           background-attachment: scroll;
@@ -100,6 +107,12 @@
         #blue-background{
           background-color: #0076AB;
           color: white;
+          content-align: "center";
+        }
+        table, th, td {
+          border: 2px solid black;
+          padding: 3px;
+          font-size: 26px;
         }
     </style>
 
@@ -107,18 +120,45 @@
 
   <body>
     <header>
-    <div id ="head-content">
-      <div id = "logo">
-        <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+      <div id ="head-content">
+        <div id = "logo">
+          <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+        </div>
       </div>
-    </div>
-</header>
+    </header>
 
-<div id = "content">
-<div id = "in-line-columns">
-  <a  href= "http://127.0.0.1:5000/grades/"><button id="button" class="redButton">Grades</button></a>
-  <a href = "http://127.0.0.1:5000/currentstudents/"><button id="button" class="yellowButton">Edit Profile</button></a>
-</div>
+    <div id = "blue-background" >
+
+        <h1 align = "center"> Grades </h1>
+
+      <table align = "center">
+           <thead>
+               <tr>
+                   <th>Course Name</th>
+                   <th>Teacher</th>
+                   <th>Grade</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>Integrated English</td>
+                   <td>Professor Chavez</td>
+                   <td> 100% </td>
+               </tr>
+               <tr>
+                   <td>Latinos in Finance</td>
+                   <td>Professor Kahlo</td>
+                   <td> 98% </td>
+               </tr>
+               <tr>
+                   <td>Workforce Development</td>
+                   <td>Professor Hernandez</td>
+                   <td> 99% </td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+
   </body>
   <footer>
     <H6>Copyright © 2004 - 2019 PODER. All rights reserved. Design CPW

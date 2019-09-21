@@ -10,7 +10,6 @@ class AccountCreationForm(FlaskForm):
     password = StringField('Password', validators=[validators.input_required(), Length(min = 6, message = "Password should be at least 6 characters.")])
     submit = SubmitField('Submit')
 
-
 class DemographicForm(FlaskForm):
     username = StringField('Email Address', validators=[validators.input_required(), Email()])
     first_name = StringField(u'First Name:', validators=[input_required()])
