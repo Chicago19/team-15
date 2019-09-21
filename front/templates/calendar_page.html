@@ -15,16 +15,16 @@
 
   <body>
     {% block content %}
-      <h3>Registration</h3>
+      <h3>Upcoming Dates</h3>
 
       <br>
 
       <form action="" method="post" novalidate>
           {{ form.hidden_tag() }}
           <p>
-              <span>{{ form.orientation_date.label }}</span> {{ form.orientation_date(size=5) }}
-          
-              <span>{{ form.output_classes.label }}</span> {{ form.output_classes(size=5) }}
+              <span>{{ form.orientation_date.label }}</span>
+
+              <span>{{ form.output_classes.label }}</span>
               <br>
           </p>
 

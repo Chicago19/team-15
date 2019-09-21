@@ -208,9 +208,10 @@ class printUpcomingDates(FlaskForm):
     #can change const 7 ddepending if class is weekly, biweekly, daily, etc
     upcoming_class_dates = []
     class_date = start_date_fall
+
     while (class_date <= start_date_spring):
         if class_date > today:
-             upcoming_class_dates.append(class_date)
+            upcoming_class_dates.append(str(class_date))
         class_date += datetime.timedelta(days = 7)
 
     orientation_date = TextField('Upcoming orientation date: ' + orientation)

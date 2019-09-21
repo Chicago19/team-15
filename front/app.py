@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
 import requests
 import json
-from forms import AccountCreationForm, DemographicForm, CareerInterest
+
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest, printUpcomingDates, ScheduleOrientation, orientation
 
 
 
@@ -28,11 +28,38 @@ def renderCurrentStudents():
     if request.method == "GET":
         return(render_template('currentstudents.html'))
 
-@app.route('/calendar/', methods=["GET"])
+
+@app.route('/calendar/', methods=["GET", "POST"])
 def renderCalendar():
     if request.method == "GET":
         form = printUpcomingDates()
-        return(render_template('calendar_page.html'))
+        return(render_template('calendar_page.html', form = form))
+
+
+@app.route('/scheduleOrientation/', methods=["GET", "POST"])
+def renderSchedule():
+    if request.method == "GET":
+        form = ScheduleOrientation()
+        return(render_template('scheduleOrientation.html', form = form))
+    elif request.method == "POST":
+        orientation = request.form['orientation']
+        file = open("orientationDate.txt", "w")
+        file.write(orientation)
+
+        url = "http://0.0.0.0:8080/scheduleOrientation/"
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        payload = {
+                'orientation': orientation
+        }
+
+        requests.post(url, headers=headers, data=json.dumps(payload))
+
+        return(redirect("http://127.0.0.1:5000/currentstudents/"))
+
 
 @app.route('/grades/', methods=["GET"])
 def renderGrades():
