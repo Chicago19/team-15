@@ -10,12 +10,152 @@
 
     <!-- css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
 
+        #button {
+          font-family: sans-serif;
+          font-size: 40px;
+          width: 450px;
+          height: 300px;
+          display: inline-block;
+          margin: 50px;
+        }
+        .redButton{
+          background-color: #e8927c;
+          color: #da291c;
+          border: none;
+          display: inline-block;
+          padding: 30px, 45px;
+          text-align: center;
+        }
+        .redButton:hover {
+          background-color: #da291c;
+          color:  white;
+          transition: 0.9s;
+        }
+        .greenButton{
+          background-color: #009a44;
+          color: #215732;
+          border: none;
+          display: inline-block;
+          padding: 30px, 45px;
+          text-align: center;
+        }
+        .greenButton:hover {
+          background-color: #215732;
+          color:  white;
+          transition: 0.9s;
+        }
+        .yellowButton{
+          background-color: #F6BE00;
+          color: #ed8b00;
+          border: none;
+          display: inline-block;
+          padding: 30px, 45px;
+          text-align: center;
+        }
+        #longButton{
+          font-family: sans-serif;
+          font-size: 40px;
+          width: 750px;
+          height: 100px;
+          margin-bottom: 50px;
+        }
+        .yellowButton:hover {
+          background-color: #ed8b00;
+          color:  white;
+          transition: 0.9s;
+        }
+        header {
+          background-color: white;
+          color: white;
+        }
+  
+        img{
+          width: 500px;
+        }
+  
+        #footer-image{
+          width: 100px;
+        }
+  
+        footer{
+          padding-top: 10px;
+          background-color: #0076AB;
+          color: white;
+          padding-bottom: 10px;
+        }
+        body {
+            text-align: center;
+            align-content: center;
+            /* background-image: url("/static/img/buildings.jpg"); */
+            background: lightgray;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: scroll;
+            background-size: cover;
+            background-position: center;
+  
+          }
+          #blue-background{
+            background-color: #0076AB;
+            color: white;
+          }
+          form.submit {
+            background-color: #e8927c;
+            color: #da291c;
+            border: none;
+            display: inline-block;
+            padding: 30px, 45px;
+            text-align: center;
+          }
+          p{
+            justify-content: center;
+          }
+          input[type=text] {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+          }
+          input[type=text]:focus {
+            border: 3px solid #555;
+          }
+          input[type=submit] {
+            background-color: #0076AB;
+            color: white;
+            border: none;
+            display: inline-block;
+            /* padding: 30px, 45px; */
+            text-align: center;
+          }
+          input[type=submit]:hover {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            display: inline-block;
+            size: 100px;
+            text-align: center;
+            transition: 0.9s;
+          }
+          
+      </style>
   </head>
 
   <body>
+      <header>
+          <div id ="head-content">
+            <div id = "logo">
+              <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+            </div>
+          </div>
+        </header>
     {% block content %}
-      <h3>Registration</h3>
+      <h3 style="margin-top: 40px">Registration</h3>
 
       <br>
       
@@ -31,7 +171,6 @@
               <span>{{ form.password.label }}</span> {{ form.password(size=32) }}
               <br>
           </p>
-
           <p>{{ form.submit() }}</p>
       </form>
     {% endblock %}
