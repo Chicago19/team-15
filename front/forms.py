@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, SelectField
+from wtforms import StringField, SubmitField, BooleanField, SelectField, validators
 from wtforms.validators import DataRequired, Email, Length, input_required, optional
-
 class AccountCreationForm(FlaskForm):
     '''
     Flask form used to create an account
@@ -46,7 +45,7 @@ class DemographicForm(FlaskForm):
     school_type = BooleanField() #us based schooling or non-us based schooling
     date_last_enrolled = StringField('Month/Year when last enrolled', validators=[validators.input_required()])
     num_school_years_completed = SelectField(u'Number of school years completed',
-    choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3')
+    choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3'),
     ('Grade 4', 'Grade 4'), ('Grade 5', 'Grade 5'), ('Grade 6', 'Grade 6'), ('Grade 7', 'Grade 7'),
     ('Grade 8', 'Grade 8'), ('Grade 9', 'Grade 9'), ('Grade 10', 'Grade 10'), ('Grade 11', 'Grade 11'),
     ('Grade 12', 'Grade 12'), ('High School Diploma', 'High School Diploma'), ('GED', 'GED'),
@@ -67,7 +66,7 @@ class DemographicForm(FlaskForm):
     num_dependents_other = StringField('Number of Dependents-other', validators=[validators.optional()])
     yearly_income = num_dependents_minor = StringField('Yearly household income', validators=[validators.input_required()])
     public_assistance = BooleanField() #do you recieve public assistance?
-    public_assistance_number = StringField('If yes, public assistance number', validators=[validators.optional()]
+    public_assistance_number = StringField('If yes, public assistance number', validators=[validators.optional()])
     disability = SelectField(u'Do you have a disability?', choices=[('Not Disabled','Not Disabled'), ('Physical Impairment', 'Physical Impairment'),
     ('Mental Impairment', 'Mental Impairment'), ('Learning Impairment', 'Learning Impairment'), ('Multiple disabilities', 'Multiple disabilities')])
     
