@@ -6,7 +6,7 @@ from flask import jsonify
 from pathlib import Path
 import hashlib
 import pandas as pd
-from score.py import score
+from score import score
 
 
 app = Flask(__name__)
@@ -261,10 +261,10 @@ def demographics():
 def test_solution():
     if request.method == 'POST':
         data = request.get_json()
-    
+
     if data is None:
         return json.dumps({error: "Error"})
-        
+
     if request.headers.get('x-api-token') == 'jria':
         question_1 = data['question_1']
         question_2 = data['question_2']
@@ -310,7 +310,7 @@ def test_solution():
         i = df.index[data["username"] == df["username"]]
         df = pd.read_csv(str(dataFolder))
 
-    if i is at None:
+    if i is not None:
         df.at[i, 'question_1'] = question_1
         df.at[i, 'question_2'] = question_2
         df.at[i, 'question_3'] = question_3
@@ -353,9 +353,9 @@ def test_solution():
         df.at[i, 'question_39'] = question_39
 
         df.to_csv(str(dataFolder), index=False)
-        
+
         score(df, df['username'])
-    
+
         return "200 - OK"
     else:
         return '405 - Method Not Allowed'
