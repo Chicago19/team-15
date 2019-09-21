@@ -15,6 +15,10 @@ def renderHome():
 
     return (render_template('home.html') )
 
+@app.route('/login/', methods=['GET', 'POST'])
+def renderAccountCreation():
+
+
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
     threading.Timer(2, lambda: webbrowser.open(url, new=1)).start()
