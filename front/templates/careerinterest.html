@@ -23,13 +23,13 @@
             {{ form.hidden_tag() }}
             <p>
             <span>{{ form.career_interest.label }}</span> {{
-                form.career_interest(size = 32) }}
-            <br>
-            
-            </p>
-            
-            <p>{{ form.submit() }}</p>
+                form.career_interest(size = 20) }}
+                </p>
+                <span>{{ form.orientation.label }}</span> {{
+                form.orientation(size = 20) }}
+                <p>{{ form.submit() }}</p>
         </form>
+        {% endblock %}
         
         </body>
     </html>

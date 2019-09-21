@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
+<<<<<<< HEAD
 from forms import AccountCreationForm, DemographicForm
 import requests
 import json
 
+=======
+from forms import AccountCreationForm, DemographicForm, CareerInterest
+>>>>>>> 00f763615e50cdb4a55910e11e07975af224038a
 
 
 app = Flask(__name__)
