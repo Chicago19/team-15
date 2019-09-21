@@ -49,7 +49,7 @@ def accountCreation():
 
 @app.route('/login/', methods=['GET','POST'])
 def accountCreation():
-    if request.method == 'POST':
+    if request.method == 'GET':
 
         data = request.get_json()
 
