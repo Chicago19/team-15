@@ -16,3 +16,11 @@ Navigate to `front/`
 ```
 python app.py
 ```
+
+## To Run our Back-End
+
+Navigate to `back/`
+
+```
+python api.py
+```
