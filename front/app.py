@@ -272,11 +272,16 @@ def renderCareerInterest():
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
+
 @app.route('/test/', methods=["GET", "POST"])
 def renderTestForm():
     if request.method == "GET":
         form = PlacementTest()
         return(render_template('test.html', form = form))
+
+@app.route('/resources/', methods=["GET", "POST"])
+def renderResources():
+    return(render_template('resources.html'))
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
