@@ -36,7 +36,7 @@
             form.last_name(size=25) }}
             <br>
             {% for error in form.last_name.errors %}
-            <span style="colorL red;">[{{ error }}]</span>
+            <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
             <span>{{ form.date_of_birth.label }}</span> {{
