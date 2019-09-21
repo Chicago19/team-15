@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from config import Config
 import threading, webbrowser
+from forms import DashboardForm
 
 
 app = Flask(__name__)
@@ -21,8 +22,9 @@ def renderDashboard():
     Renders a viewable web application on your port:
     http://127.0.0.1:5000/home
     '''
-    
-    return (render_template('currentstudents.html') )
+    form = DashboardForm()
+
+    return (render_template('currentstudents.html', form = form) )
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
