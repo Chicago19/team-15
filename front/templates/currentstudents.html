@@ -14,7 +14,17 @@
   </head>
 
   <body>
+    {% block content %}
+     <h3>Dashboard</h3>
 
+     <br>
+
+     <form action="" method="post" novalidate>
+         {{ form.hidden_tag() }}
+
+         <p>{{ form.label }}</p>
+     </form>
+   {% endblock %}
 
   </body>
 </html>
