@@ -12,11 +12,12 @@ class AccountCreationForm(FlaskForm):
 
 
 class DemographicForm(FlaskForm):
+
     first_name = StringField(u'First Name:', validators=[input_required()])
     last_name  = StringField(u'Last Name:', validators=[input_required()])
     middle_name  = StringField(u'Middle Name:', validators=[optional()])
     date_of_birth = StringField(u'Date of Birth:', validators=[input_required()])
-    gender = BooleanField() #gender
+    gender = SelectField(u'Gender', choices=[('Female', 'Female'), ('Male', 'Male')]) #gender
     marital_status = SelectField(u'Marital Status:', choices=[('Single', 'Single'),
     ('Married', 'Married'), ('Divorced', 'Divorced'), ('Widow', 'Widow')])
     spanish_origin = BooleanField();  #Are you hispanic or latino?
@@ -31,6 +32,7 @@ class DemographicForm(FlaskForm):
     native_lang = StringField(u'If yes, record native language', validators=[validators.optional()])
 
     #contact info
+    email = StringField('Email Address', validators=[validators.input_required(), Email()])
     address = StringField('Address', validators=[validators.input_required()])
     city = StringField('City', validators=[validators.input_required()])
     state = StringField('State', validators=[validators.input_required()])
@@ -43,7 +45,7 @@ class DemographicForm(FlaskForm):
 
     #education
     max_grade_completed = StringField('Maximum grade of education completed', validators=[validators.input_required()])
-    school_type = BooleanField() #us based schooling or non-us based schooling
+    school_type = SelectField(u'Schooling Type', choices=[('US-based school', 'US-based school'), ('non-US based school', 'non-US based school')])
     date_last_enrolled = StringField('Month/Year when last enrolled', validators=[validators.input_required()])
     num_school_years_completed = SelectField(u'Number of school years completed',
     choices=[('Grade 1', 'Grade 1'), ('Grade 2', 'Grade 2'), ('Grade 3', 'Grade 3'),
@@ -77,7 +79,7 @@ class DemographicForm(FlaskForm):
     ('Participant in a WorkPlace Literacy program', 'Participant in a WorkPlace Literacy program'), ('Participant in a Volunteer Literacy program','Participant in a Volunteer Literacy program'), ('In Program for the homeless', 'In Program for the homeless'),
     ('In a correctional facility', 'In a correctional facility'), ('In a community correctional program', 'In a community correctional program'), ('In other institutional setting', 'In other institutional setting')])
 
-    children = BooleanField()
+    children = BooleanField() #Do you have children?
     num_children = StringField(u'How many children do you have?', validators=[validators.optional()])
     age_children = StringField(u'How old are they?', validators=[validators.optional()])
     school_type = SelectField(u'What type of school do they attend?', choices=[('Public', 'Public'), ('Private', 'Private'), ('Charter', 'Charter'), ('None', 'None')])
@@ -126,21 +128,18 @@ class CareerInterest(FlaskForm):
     ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
     ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
     ])
-    
     start_date_fall = datetime.datetime(2019, 8, 26)
     start_date_spring = datetime.datetime(2020, 1, 1)
     start_date_summer = datetime.datetime(2020, 5, 10)
-    
+
     today = datetime.datetime.now()
-    
+
     possible_dates = []
     while (today <= start_date_fall + datetime.timedelta(days=70)):
         possible_dates.append((str(today), str(today)))
         today += datetime.timedelta(days = 1)
     orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
-
     submit = SubmitField('Submit')
-
 
 class PlacementTest(FlaskForm):
     question_1 = SelectField("What's the mother's name?", choices=[('a', 'His name is Pilar.'), ('b', 'Her name is Pilar.'), ('c', 'Their name is Pilar.'), ('d', 'Your name is Pilar.')])
@@ -164,24 +163,4 @@ class PlacementTest(FlaskForm):
     question_19 = SelectField("How long does it take to drive to Philadelphia? It takes ____.", choices = [('every day', 'every day'), ('often', 'often'), ('about two hours', 'about two hours'), ('twice a month', 'twice a month')])
     question_20 = SelectField("The white refrigerator is large. But the gray refrigerator is ____.", choices= [('larger than', 'larger than'), ('smaller', 'smaller'), ('larger', 'larger'), ('large', 'large')])
     question_21 = SelectField("Ravi cleaned his room, ___ he didn't make his bed.", choices = [('or', 'or'), ('but', 'but'), ('and', 'and'), ('now', 'now')])
-
-
-
-'''
-class Schedule(FlaskForm):
-    start_date_fall = datetime.datetime(2019, 8, 26)
-    start_date_spring = datetime.datetime(2020, 1, 1)
-    start_date_summer = datetime.datetime(2020, 5, 10)
-
-    today = datetime.datetime.now()
-
-    possible_dates = []
-    while (today <= start_date_fall + datetime.timedelta(days=70)):
-        possible_dates.append((str(today), str(today)))
-        today += datetime.timedelta(days = 1)
-    orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
-<<<<<<< HEAD
-
-=======
-    '''
-
+    submit = SubmitField('Submit')
