@@ -47,6 +47,38 @@ def accountCreation():
             else:
                 return '405 - Method Not Allowed'
 
+@app.route('/login/', methods=['GET','POST'])
+def accountCreation():
+    if request.method == 'POST':
+
+        data = request.get_json()
+
+        if data is None:
+            return json.dumps({error: "Error"})
+
+        if request.headers.get('x-api-token') == 'jria':
+
+            email = data['username']
+            password = data['password']
+
+            df = pd.read_csv(str(dataFolder))
+
+            user = df.loc[df["username"] == email]
+            i = df.index[data["username"] == df["username"]]
+
+
+            # If the user exists
+            if not user.empty:
+                if password == df.at[i, 'password']:
+                    first_name = df.at[i, "first_name"]
+                    last_name = df.at[i, "last_name"]
+                    exists = True
+
+                    return jsonify(first_name = first_name, last_name=last_name, exists=exists)
+
+            return jsonify(exists = False)
+
+
 @app.route('/demographics/', methods=['POST'])
 def demographics():
     if request.method == 'POST':
