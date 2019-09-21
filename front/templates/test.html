@@ -22,8 +22,40 @@
             {{ form.hidden_tag() }}
             <p>
             <h2>Look at the picture. Read the sentences. Choose the correct answer.</h2>
-            <img src="family_dinner.png" alt="Family having dinner">
+            <img src="front/static/img/family_dinner.png" alt="Family having dinner">
                 <span>{{ form.question_1.label }}</span>{{ form.question_1(size=25)}}
+                <span>{{ form.question_2.label }}</span>{{ form.question_2(size=25)}}
+                <span>{{ form.question_3.label }}</span>{{ form.question_3(size=25)}}
+                <br>
+            </p>
+            <p>
+            <img src="front/static/img/restaurant.png" alt="Text of restaurant information">
+                <span>{{ form.question_4.label }}</span>{{ form.question_4(size=25)}}
+                <br>
+                </p>
+            <p>
+            <img src="front/static/img/schedule.png" alt="Schedule question">
+                <span>{{ form.question_5.label }}</span>{{ form.question_5(size=25)}}
+                <span>{{ form.question_6.label }}</span>{{ form.question_6(size=25)}}
+                <br>
+                </p>
+            <p>
+            <h2>Look at the map. Read the question. Choose the correct answer.</h2>
+            <img src="front/static/img/map.png" alt="Basic map">
+                <span>{{ form.question_7.label }}</span>{{ form.question_7(size=25)}}
+                <br>
+                </p>
+            <p>
+            <span>{{ form.question_8.label }}</span>{{ form.question_8(size=25)}}
+            <span>{{ form.question_9.label }}</span>{{ form.question_9(size=25)}}
+            <span>{{ form.question_10.label }}</span>{{ form.question_10(size=25)}}
+            <span>{{ form.question_11.label }}</span>{{ form.question_11(size=25)}}
+            <span>{{ form.question_12.label }}</span>{{ form.question_12(size=25)}}
+            <span>{{ form.question_13.label }}</span>{{ form.question_13(size=25)}}
+            </p>
+            
+            <img src="front/static/img/catalog.png" alt="Text about courses">
+                <span>
             
         </p>
         </form>
