@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from config import Config
 import threading, webbrowser
+from forms import AccountCreationForm
 
 
 app = Flask(__name__)
@@ -15,8 +16,11 @@ def renderHome():
 
     return (render_template('home.html') )
 
-@app.route('/login/', methods=['GET', 'POST'])
+@app.route('/accountcreation/', methods=['GET', 'POST'])
 def renderAccountCreation():
+    form = AccountCreationForm()
+
+    return (render_template('accountcreation.html', form = form))
 
 
 if __name__ == '__main__':
