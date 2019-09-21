@@ -8,13 +8,110 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
-    <!-- css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      #button {
+        font-family: sans-serif;
+        font-size: 30px;
+        width: 450px;
+        height: 300px;
+        display: inline-block;
+        margin: 150px;
+      }
+      .redButton{
+        background-color: #e8927c;
+        color: #da291c;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      .redButton:hover {
+        background-color: #da291c;
+        color:  white;
+        transition: 0.9s;
+      }
+      .greenButton{
+        background-color: #009a44;
+        color: #215732;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      .greenButton:hover {
+        background-color: #215732;
+        color:  white;
+        transition: 0.9s;
+      }
+      .yellowButton{
+        background-color: #F6BE00;
+        color: #ed8b00;
+        border: none;
+        display: inline-block;
+        padding: 30px, 45px;
+        text-align: center;
+      }
+      #longButton{
+        font-family: sans-serif;
+        font-size: 30px;
+        width: 750px;
+        height: 100px;
+        margin-bottom: 50px;
+      }
+      .yellowButton:hover {
+        background-color: #ed8b00;
+        color:  white;
+        transition: 0.9s;
+      }
+      header {
+        background-color: #41B6E6;
+        color: white;
+      }
+      footer{
+        background-color: #0076AB;
+        color: white;
+      }
+      body {
+          text-align: center;
+          align-content: center;
+          width: 80%;
+          height: auto;
+          margin: auto;
+          background-image: url("/static/img/buildings.jpg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: scroll;
+          background-size: cover;
+          background-position: center;
+
+        }
+    </style>
 
   </head>
 
   <body>
-
-
+    <header>
+      <H1>HEADER</h1>
+      <div id ="head-content">
+        <div id = "logo">
+          <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+        </div>
+      </div>
+    </header>
+    <!-- background white block -->
+      <div id = "content">
+      <div id = "in-line-columns">
+        <button id="button" class="redButton">Prospective Students</button>
+        <button id="button" class= "greenButton">Current Students</button>
+      </div>
+      <div id="centered-content">
+      </div>
+      <div id="centered-button">
+        <button id="longButton" class="yellowButton">Resources</button>
+      </div>
+      </div>
   </body>
+  <footer>
+    <H1>FOOTER</H1>
+  </footer>
 </html>
