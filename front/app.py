@@ -33,6 +33,10 @@ def renderGrades():
     if request.method == "GET":
         return(render_template('grades.html'))
 
+@app.route('/resources/', methods=['GET','POST'])
+def renderResources():
+        return(render_template('resources.html'))
+
 @app.route('/editprofile/', methods=["GET"])
 def renderEditProfile():
     if request.method == "GET":
