@@ -7,5 +7,5 @@ class AccountCreationForm(FlaskForm):
     Flask form used to create an account 
     '''
     username = StringField('Email Address', validators=[DataRequired(), Email()])
-    password = StringField('Password', validators=[DataRequired(), Length(min = 6)])
+    password = StringField('Password', validators=[DataRequired(), Length(min = 6, message = "Password should be at least 6 characters.")])
     submit = SubmitField('Submit')
