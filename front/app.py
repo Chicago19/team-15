@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm, CareerInterest
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
 import requests
 import json
+from forms import AccountCreationForm, DemographicForm, CareerInterest
 
 
 
@@ -260,26 +261,11 @@ def renderCareerInterest():
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
-    if request.method == "POST":
-        username = cached_username
-        career_interest = request.form['career_interest']
-
-        url = "http://0.0.0.0:8080/careerinterests/"
-
-        # Yes, the x-api-token is weird. No, I don't know why I picked it.
-        headers = {
-            'content-type': 'application/json',
-            'x-api-token': 'jria'
-        }
-
-        payload = {
-            'career_interest':career_interest,
-            'username': cached_username
-        }
-
-        requests.post(url, headers=headers, data=json.dumps(payload))
-
-        return(redirect("http://127.0.0.1:5000/test/"))
+@app.route('/test/', methods=["GET", "POST"])
+def renderTestForm():
+    if request.method == "GET":
+        form = PlacementTest()
+        return(render_template('test.html', form = form))
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
