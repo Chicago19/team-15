@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
+<<<<<<< HEAD
 from forms import AccountCreationForm, DemographicForm, CareerInterest
+=======
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
+from forms import AccountCreationForm, DemographicForm
+>>>>>>> 4ee2009476ac1a2f6e6b9e4e5151e9b8c75b7277
 import requests
 import json
+from forms import AccountCreationForm, DemographicForm, CareerInterest
 
 
 
@@ -189,6 +195,12 @@ def renderCareerInterestForm():
     if request.method == "GET":
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
+
+@app.route('/test/', methods=["GET", "POST"])
+def renderTestForm():
+    if request.method == "GET":
+        form = PlacementTest()
+        return(render_template('test.html', form = form))
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'

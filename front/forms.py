@@ -11,6 +11,7 @@ class AccountCreationForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class DemographicForm(FlaskForm):
+
     username = StringField('Email Address', validators=[validators.input_required(), Email()])
     first_name = StringField(u'First Name:', validators=[input_required()])
     last_name  = StringField(u'Last Name:', validators=[input_required()])
@@ -144,6 +145,7 @@ class PlacementTest(FlaskForm):
     question_1 = SelectField("What's the mother's name?", choices=[('a', 'His name is Pilar.'), ('b', 'Her name is Pilar.'), ('c', 'Their name is Pilar.'), ('d', 'Your name is Pilar.')])
     question_2 = SelectField("There are three ___ on the table.", choices=[('a', 'cup'), ('b', 'cups'), ('c', 'cake'), ('d', 'plate')])
     question_3 = SelectField("Is Ramona happy?", choices=[('a', 'Yes, she is.'), ('b', 'Yes, we are.'), ('c', 'Yes, he is.'), ('d.', 'Yes, they are.')])
+<<<<<<< HEAD
     question_4 = SelectField("Carmina's Restaurant is open ___.", choices=[('a', 'on Sunday'), ('b', 'on Tuesday'), ('on Saturday', 'on Saturday'), ('on Monday', 'on Monday')])
     question_5 = SelectField("How many people work at the day-care center?", choices = [('three', 'three'), ('four', 'four'), ('five', 'five'), ('six', 'six')])
     question_6 = SelectField("Who works until 8:00 p.m. on Tuesday and Thursday?", choices = [('Dan', 'Dan'), ('Juan', 'Juan'), ('Megan', 'Megan'), ('Sally', 'Sally')])
@@ -163,3 +165,61 @@ class PlacementTest(FlaskForm):
     question_20 = SelectField("The white refrigerator is large. But the gray refrigerator is ____.", choices= [('larger than', 'larger than'), ('smaller', 'smaller'), ('larger', 'larger'), ('large', 'large')])
     question_21 = SelectField("Ravi cleaned his room, ___ he didn't make his bed.", choices = [('or', 'or'), ('but', 'but'), ('and', 'and'), ('now', 'now')])
     submit = SubmitField('Submit')
+=======
+    question_4 = SelectField("Carmina's Restaurant is open ___.", choices=[('a', 'on Sunday'), ('b', 'on Tuesday'), ('c', 'on Saturday'), ('d', 'on Monday')])
+    question_5 = SelectField("How many people work at the day-care center?", choices = [('a', 'three'), ('b', 'four'), ('c', 'five'), ('d', 'six')])
+    question_6 = SelectField("Who works until 8:00 p.m. on Tuesday and Thursday?", choices = [('a', 'Dan'), ('b', 'Juan'), ('c', 'Megan'), ('d', 'Sally')])
+    question_7 = SelectField("The post office is ___ the parking lot.", choices = [('a', 'on'), ('b', 'across from'), ('c', 'on the corner of'), ('d', 'next to')])
+    question_8 = SelectField("What are Katia and Sara doing? They ____", choices = [('a', 'talking'), ('b', 'are talking'), ('c', 'is talking'), ('d', 'talk')])
+    question_9 = SelectField("Does Lee ___ a fever?", choices= [('a', 'had'), ('b', 'has'), ('c', 'have'), ('d', 'having')])
+    question_10 = SelectField("When do you eat lunch? ___ 12:30", choices = [('a', 'In'), ('b', 'On'), ('c', 'At'), ('d', 'From')])
+    question_11 = SelectField("How many ___ do we have? Three.", choices = [('a', 'tea'), ('b', 'onions'), ('c', 'milk'), ('d', 'bread')])
+    quesion_12 = SelectField("Yolanda is a teacher now. She ___ a teacher's assistant before.", choices = [('a', 'is'), ('b', 'are'), ('c', 'was'), ('d', 'were')])
+    question_13 = SelectField("Yesterday, Dan ____ groceries after work.", choices=[('a', 'bought'), ('b', 'buying'), ('c', 'buy'), ('d', 'buys')])
+    question_missed = SelectField("What will you learn in Ms. Cuevas's class?", choices =[('a', 'math'),('b', 'TV repair'), ('c', 'computer repair'), ('d', 'American history')])
+    question_14 = SelectField("Which course meets on Mondays and Tuesdays?", choices=[('a', 'GED'), ('b', 'TV and DVD repair'), ('c', 'Introduction to Computers'), ('d', 'Citizenship')])
+    question_15 = SelectField("What did Joe buy Sylvia? He bought ___ a cake.", choices=[('a', 'to her'), ('b', 'them'), ('c', 'she'), ('d', 'her')])
+    question_16 = SelectField("Leon has a test tomorrow. He ___ study tonight.", choices = [('a', 'is'), ('b', 'does'), ('c', 'will'), ('d', 'are')])
+    question_17 = SelectField("When do Mr. and Mrs. Yamada usually eat dinner? They usually ___ at 7 p.m.", choices = [('a', 'eat'), ('b', 'eats'), ('c', 'ate'), ('d', 'eating')])
+    question_18 = SelectField("Marcia's back is hurting. She ___ to see a doctor.", choices = [('a', 'have'), ('b', 'has'), ('c', 'having'), ('d', 'had')])
+    question_19 = SelectField("How long does it take to drive to Philadelphia? It takes ____.", choices = [('a', 'every day'), ('b', 'often'), ('c', 'about two hours'), ('d', 'twice a month')])
+    question_20 = SelectField("The white refrigerator is large. But the gray refrigerator is ____.", choices= [('la', 'larger than'), ('b', 'smaller'), ('c', 'larger'), ('d', 'large')])
+    question_21 = SelectField("Ravi cleaned his room, ___ he didn't make his bed.", choices = [('a', 'or'), ('b', 'but'), ('c', 'and'), ('d', 'now')])
+    question_22 = SelectField("Keiko's father used to ___.", choices = [('a', 'take naps every afternoon'), ('b', 'eat too much sugar and salt'), ('c', 'get sick a lot'), ('d', 'do volunteer work')])
+    question_23 = SelectField("Recently, Keiko's father has ___.", choices = [('a', 'slept well'), ('b', 'lost weight'), ('c', 'had a lot of energy'), ('d', 'seen his doctor')])
+    question_24 = SelectField("Connie likes going out as ____ staying home.", choices = [('a', 'much'), ('b', 'much as'), ('c', 'more than'), ('d', 'less than')])
+    question_25 = SelectField("David ____ well lately.", choices = [('a', 'have slept'), ('b', "haven't slept"), ('c', "hasn't slept"), ('d', 'sleeps')])
+    question_26 = SelectField("Arturo intents ____ history in college.", choices = [('a', 'to study'), ('b', 'studying'), ('c', 'studies'), ('d', 'will study')])
+    question_27 = SelectField("Michael always turns off his computer ___ the office.", choices = [('a', 'before he leaves'), ('b', 'he leaves'), ('c', 'after he left'), ('d', 'when he left')])
+    question_28 = SelectField("I'm tired of ___ TV. Let's go out.", choices = [('a', 'watching'), ('b', 'watches'), ('c', 'to watch'), ('d', 'watched')])
+    question_29 = SelectField("Walter is practicing the piano. He ____ since 9:00.", choices = [('a', 'is practicing'), ('b', 'practiced'), ('c', 'practices'), ('d', 'has been practicing')])
+    question_30 = SelectField("While we were driving to school, ____.", choices = [('a', 'it started to rain'), ('b', 'it starts to rain'), ('c', "it's raining"), ('d', 'it is rain')])
+    question_31 = SelectField("The Pinheiros ____.", choices = [('a', 'coordinate all the volunteers at the food bank'), ('b', 'volunteer at the food bank'), ('c', 'donate groceries to the food bank'), ('d', 'are customers at the food bank')])
+    question_32 = SelectField("The Pinheiros feel ____.", choices = [('a', 'closer to other people'), ('b', 'ungrateful for other people'), ('c', 'compassionate toward other people'), ('d', 'as lucky as other people')])
+    question_33 = SelectField("Do you believe ____?", choices= [('a', 'will Helen be artisitic'), ('b', 'that Helen is artistic'), ('c', 'is Helen artistic'), ('d', 'that Helen is artistic')])
+    question_34 = SelectField("She used to be a fast driver. Since her accident, she drives _____.", choices = [('a', 'careful'), ('b', 'more carefully'), ('c', 'more careful'), ('d', 'the most careful')])
+    question_35 = SelectField("____ at your school?", choices = [('a', 'Is financial aid offered'), ('b', 'Financial aid is offered'), ('c', 'Financial aid offers'), ('d', 'Does financial aid offer')])
+    question_36 = SelectField("A: My boyfriend took me out for dinner last night. B: Really? Tell me where ____.", choices = [('a', 'did you go'), ('b', 'you go'), ('c', 'you went'), ('d', 'you have gone')])
+    question_37 = SelectField("Mary drives her daughter to school ____.", choices = [('a', 'every day last year'), ('b', 'four times a week'), ('c', 'when she was small'), ('d', 'twice so far')])
+    question_38 = SelectField("Sona doesn't use her air conditioning often ____ it's too expensive.", choices = [('a', 'although'), ('b', 'even though'), ('c', 'because of'), ('d', 'because')])
+    question_39 = SelectField("These days, nobody wants to buy a car ____ a lot of gas.", choices = [('a', 'that uses'),('b', "it doesn't use"), ('c', "that it doesn't use"), ('d', 'who uses')])
+
+
+
+'''
+class Schedule(FlaskForm):
+    start_date_fall = datetime.datetime(2019, 8, 26)
+    start_date_spring = datetime.datetime(2020, 1, 1)
+    start_date_summer = datetime.datetime(2020, 5, 10)
+
+    today = datetime.datetime.now()
+
+    possible_dates = []
+    while (today <= start_date_fall + datetime.timedelta(days=70)):
+        possible_dates.append((str(today), str(today)))
+        today += datetime.timedelta(days = 1)
+    orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
+
+    '''
+
+>>>>>>> 4ee2009476ac1a2f6e6b9e4e5151e9b8c75b7277
