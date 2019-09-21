@@ -7,137 +7,106 @@
             <!-- google font api -->
             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-                    
+
                     <!-- css -->
-                    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<<<<<<< HEAD
+
                         
+=======
+                    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
-                    <style>
+                    <!-- favicon -->
+                    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-                    input[type=text] {
-                        width: 20%;
-                        padding: 5px 5px;
-                        margin: auto;
-                        text-align: center;
-                        box-sizing: border-box;
-                        border: 3px solid #ccc;
-                              -webkit-transition: 0.5s;
-                        transition: 0.5s;
-                        outline: none;
-                        }
 
+
+<<<<<<< HEAD
+                    
                         label {
                             float: left;
                             padding-left: 20px;
+=======
+                        </head>
+
+                        <style>
+
+                        input[type=text] {
+                            width: 20%;
+                            padding: 5px 5px;
+                            margin: auto;
+                            text-align: center;
+                            box-sizing: border-box;
+                            border: 3px solid #ccc;
+                                  -webkit-transition: 0.5s;
+                            transition: 0.5s;
+                            outline: none;
                             }
 
-                        input[type=text]:focus {
-                        border: 3px solid #555;
-                        }
+                            box{
+                                grid-template-columns: 120px 120px 120px;
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
+                            }
+
+                            label {
+                                float: left;
+                                padding-left: 20px;
+                                }
+
+<<<<<<< HEAD
                         
                         header {
                             background-color: white;
                             color: white;
+                            align-content: center;
                         }
+=======
+>>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
-                        body{
-                            background-color: lightgray;
-                        }
+                            input[type=text]:focus {
+                            border: 3px solid #555;
+                            }
 
-                        img{
-                            width: 500px;
-                        }
 
-                        #footer-image{
-                            width: 100px;
-                        }
+                            header {
+                                background-color: white;
+                                color: white;
+                            }
 
-                        footer{
-                            padding-top: 10px;
-                            background-color: #0076AB;
-                            color: white;
-                            padding-bottom: 10px;
-                        }
+                            body{
+                                background-color: lightgray;
+                            }
 
-                        /* The container */
-                        .container {
-                        display: block;
-                        position: relative;
-                        padding-left: 35px;
-                        margin-bottom: 12px;
-                        cursor: pointer;
-                        font-size: 22px;
-                        -webkit-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                        }
+                            img{
+                                width: 500px;
+                            }
 
-                        /* Hide the browser's default checkbox */
-                        .container input {
-                        position: absolute;
-                        opacity: 0;
-                        cursor: pointer;
-                        height: 0;
-                        width: 0;
-                        }
+                            .form-control{
+                                align-content: center;
+                            }
 
-                        /* Create a custom checkbox */
-                        .checkmark {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        height: 25px;
-                        width: 25px;
-                        background-color: #eee;
-                        }
+                            #footer-image{
+                                width: 100px;
+                            }
 
-                        /* On mouse-over, add a grey background color */
-                        .container:hover input ~ .checkmark {
-                        background-color: #ccc;
-                        }
+                            footer{
+                                padding-top: 10px;
+                                background-color: #0076AB;
+                                color: white;
+                                padding-bottom: 10px;
+                            }
 
-                        /* When the checkbox is checked, add a blue background */
-                        .container input:checked ~ .checkmark {
-                        background-color: #2196F3;
-                        }
 
-                        /* Create the checkmark/indicator (hidden when not checked) */
-                        .checkmark:after {
-                        content: "";
-                        position: absolute;
-                        display: none;
-                        }
+                            input[type=submit] {
+                                padding:5px 15px;
+                                background:#2196F3;
+                                border:0 none;
+                                cursor:pointer;
+                                color: white;
+                            }
 
-                        /* Show the checkmark when checked */
-                        .container input:checked ~ .checkmark:after {
-                        display: inline-block;
-                        }
+                        </style>
 
-                        /* Style the checkmark/indicator */
-                        .container .checkmark:after {
-                        left: 9px;
-                        top: 5px;
-                        width: 5px;
-                        height: 10px;
-                        border: solid white;
-                        border-width: 0 3px 3px 0;
-                        -webkit-transform: rotate(45deg);
-                        -ms-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                        }
-                        
-                        input[type=submit] {
-                            padding:5px 15px; 
-                            background:#2196F3; 
-                            border:0 none;
-                            cursor:pointer;
-                            color: white;
-                        }
-                        
-                    </style>
-                        </head>
-    
     <body>
             <header>
                     <div id ="head-content">
@@ -147,15 +116,16 @@
                     </div>
                   </header>
         {% block content %}
+        <div id="box">
         <h3>Demographics</h3>
-        
+
         <br>
-        
+
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
             <p>
             <h3>Basic Information</h3>
-            <span>{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
+            <span >{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
             <br>
             {% for error in form.first_name.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -186,7 +156,7 @@
             <span>{{ form.country_of_origin.label }}</span>{{
             form.country_of_origin(size=25) }}
             </p>
-            <span>{{ form.racial_group.label }}</span>{{
+            <span >{{ form.racial_group.label }}</span>{{
             form.racial_group(size=4) }}
             </p>
             <span>{{ form.english_second_lang.label }}</span>{{
@@ -238,6 +208,7 @@
             <span>{{ form.num_school_years_completed.label }}</span>{{
             form.num_school_years_completed(size = 8)}}
             </p>
+        </div>
             <h3>Employment</h3>
             </p>
             <span>{{ form.occupation.label }}</span>{{
@@ -359,7 +330,8 @@
             <p>{{ form.submit() }}</p>
         </form>
         {% endblock %}
-        
+    </div>
+
     </body>
     <footer>
             <H6>Copyright © 2004 - 2019 PODER. All rights reserved. Design CPW
@@ -367,5 +339,3 @@
                 <img id= "footer-image" src="{{ url_for('static', filename='img/gximage2.png') }}">
           </footer>
 </html>
-
-

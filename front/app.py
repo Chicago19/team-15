@@ -28,10 +28,19 @@ def renderCurrentStudents():
     if request.method == "GET":
         return(render_template('currentstudents.html'))
 
+@app.route('/Calendar/', methods=["GET"])
+def renderCalendar():
+    if request.method == "GET":
+        return(render_template('Calendar.html'))
+
 @app.route('/grades/', methods=["GET"])
 def renderGrades():
     if request.method == "GET":
         return(render_template('grades.html'))
+
+@app.route('/resources/', methods=['GET','POST'])
+def renderResources():
+        return(render_template('resources.html'))
 
 @app.route('/editprofile/', methods=["GET"])
 def renderEditProfile():
@@ -92,10 +101,13 @@ def renderLogin():
 
         response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
 
-        if response['exists']:
-            return(redirect("http://127.0.0.1:5000/currentstudents/"))
-        else:
-            return(redirect("http://127.0.0.1:5000/loginfail/"))
+        try:
+            if response['exists']:
+                return(redirect("http://127.0.0.1:5000/currentstudents/"))
+            else:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+        except:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
 
 
 @app.route('/loginfail/', methods=['GET', 'POST'])
@@ -108,14 +120,13 @@ def renderLoginFail():
         username = request.form['username'].strip()
         password = request.form['password']
 
-        url = "http://0.0.0.0:8080/login/"
-
         # Yes, the x-api-token is weird. No, I don't know why I picked it.
         headers = {
             'content-type': 'application/json',
             'x-api-token': 'jria'
         }
 
+        url = "http://0.0.0.0:8080/login/"
         payload = {
                 'username': username,
                 'password': password
@@ -266,11 +277,13 @@ def renderCareerInterest():
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
+
 @app.route('/test/', methods=["GET", "POST"])
 def renderTestForm():
     if request.method == "GET":
         form = PlacementTest()
         return(render_template('test.html', form = form))
+
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
