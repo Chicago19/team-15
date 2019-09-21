@@ -113,7 +113,9 @@
     <header>
     <div id ="head-content">
       <div id = "logo">
-        <img alt = "Poder logo" src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+        <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
+          <img alt = "Poder logo" src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+        </a>
       </div>
     </div>
 </header>
@@ -121,7 +123,7 @@
 <div id = "content">
 <div id = "in-line-columns">
   <a  href= "http://127.0.0.1:5000/grades/"><button id="button" class="redButton">Grades</button></a>
-  <a href = "http://127.0.0.1:5000/currentstudents/"><button id="button" class="yellowButton">Edit Profile</button></a>
+  <!-- <a href = "http://127.0.0.1:5000/currentstudents/"><button id="button" class="yellowButton">Edit Profile</button></a> -->
   <a href = "http://127.0.0.1:5000/calendar/"><button id="button" class="greenButton">Calendar</button></a>
 
 </div>
