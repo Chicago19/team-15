@@ -47,6 +47,38 @@ def accountCreation():
             else:
                 return '405 - Method Not Allowed'
 
+@app.route('/login/', methods=['GET','POST'])
+def login():
+    if request.method == 'GET':
+
+        data = request.get_json()
+
+        if data is None:
+            return json.dumps({error: "Error"})
+
+        if request.headers.get('x-api-token') == 'jria':
+
+            email = data['username']
+            password = data['password']
+
+            df = pd.read_csv(str(dataFolder))
+
+            user = df.loc[df["username"] == email]
+            i = df[df["username"] == email].index.values.astype(int)[0]
+
+
+            # If the user exists
+            if not user.empty:
+                h = hashlib.md5(password.encode())
+                if h.hexdigest() == df.at[i, 'password']:
+                    first_name = df.at[i, "first_name"]
+                    last_name = df.at[i, "last_name"]
+                    exists = True
+                    return jsonify(first_name = first_name, last_name=last_name, exists=exists)
+
+            return jsonify(exists = False)
+
+
 @app.route('/demographics/', methods=['POST'])
 def demographics():
     if request.method == 'POST':
@@ -215,6 +247,33 @@ def demographics():
                 df.at[i, 'internet_access_elsewhere'] = internet_access_elsewhere
 
                 df.at[i, 'why_learn_english'] = why_learn_english
+
+                df.to_csv(str(dataFolder), index=False)
+
+                return "200 - OK"
+
+            else:
+                return '405 - Method Not Allowed'
+
+@app.route('/careerinterests/', methods=['POST'])
+def careerInterests():
+    if request.method == 'POST':
+
+        data = request.get_json()
+
+        if data is None:
+            return json.dumps({error: "Error"})
+
+        if request.headers.get('x-api-token') == 'jria':
+
+            career_interest = data['career_interest']
+
+            # If the user doesn't exist yet, put them in!
+            df = pd.read_csv(str(dataFolder))
+            i = df.index[data["username"] == df["username"]]
+
+            if i is not None:
+                df.at[i, 'career_interest'] = career_interest
 
                 df.to_csv(str(dataFolder), index=False)
 
