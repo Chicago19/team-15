@@ -42,10 +42,10 @@ def accountCreation():
 
                 df.to_csv(str(dataFolder), index=False)
 
-                return "200 - OK"
+                return jsonify(exists= "True")
 
             else:
-                return '405 - Method Not Allowed'
+                return jsonify(exists= "True")
 
 @app.route('/login/', methods=['GET','POST'])
 def login():
@@ -54,7 +54,7 @@ def login():
         data = request.get_json()
 
         if data is None:
-            return json.dumps({error: "Error"})
+            return jsonify(error= "Error")
 
         if request.headers.get('x-api-token') == 'jria':
 
@@ -64,12 +64,11 @@ def login():
             df = pd.read_csv(str(dataFolder))
 
             user = df.loc[df["username"] == email]
-            i = df[df["username"] == email].index.values.astype(int)[0]
-
 
             # If the user exists
             if not user.empty:
                 h = hashlib.md5(password.encode())
+                i = df[df["username"] == email].index.values.astype(int)[0]
                 if h.hexdigest() == df.at[i, 'password']:
                     first_name = df.at[i, "first_name"]
                     last_name = df.at[i, "last_name"]
@@ -167,7 +166,7 @@ def demographics():
 
 
             df = pd.read_csv(str(dataFolder))
-            i = df.index[data["username"] == df["username"]]
+            i = df[data["username"] == df["username"]].index.values.astype(int)[0]
 
 
             if i is not None:
@@ -270,7 +269,7 @@ def careerInterests():
 
             # If the user doesn't exist yet, put them in!
             df = pd.read_csv(str(dataFolder))
-            i = df.index[data["username"] == df["username"]]
+            i = df[data["username"] == df["username"]].index.values.astype(int)[0]
 
             if i is not None:
                 df.at[i, 'career_interest'] = career_interest
