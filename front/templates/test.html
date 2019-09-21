@@ -15,6 +15,85 @@
                         </head>
 
     <body>
+
+      <style>
+
+      input[type=text] {
+          width: 20%;
+          padding: 5px 5px;
+          margin: auto;
+          text-align: center;
+          box-sizing: border-box;
+          border: 3px solid #ccc;
+                -webkit-transition: 0.5s;
+          transition: 0.5s;
+          outline: none;
+          }
+
+          box{
+              grid-template-columns: 120px 120px 120px;
+          }
+
+          label {
+              float: left;
+              padding-left: 20px;
+              }
+
+
+          input[type=text]:focus {
+          border: 3px solid #555;
+          }
+
+
+          header {
+              background-color: white;
+              color: white;
+          }
+
+          body{
+              background-color: lightgray;
+              align-items: center;
+          }
+
+          img{
+              width: 500px;
+          }
+
+          .form-control{
+              align-content: center;
+          }
+
+          #footer-image{
+              width: 100px;
+          }
+
+          footer{
+              padding-top: 10px;
+              background-color: #0076AB;
+              color: white;
+              padding-bottom: 10px;
+          }
+
+
+          input[type=submit] {
+              padding:5px 15px;
+              background:#2196F3;
+              border:0 none;
+              cursor:pointer;
+              color: white;
+          }
+
+      </style>
+
+      <header>
+              <div id ="head-content">
+                <div id = "logo">
+                  <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
+                    <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+                  </a>
+                </div>
+              </div>
+            </header>
         {% block content %}
         <h3>Integrative English Exam</h3>
 
@@ -24,6 +103,7 @@
             {{ form.hidden_tag() }}
             <p>
             <h2>Look at the picture. Read the sentences. Choose the correct answer.</h2>
+<<<<<<< HEAD
             <img src="{{ url_for('static', filename='img/family_dinner.png') }}" alt="Family having dinner">
                 <br>
                 <br>
@@ -39,20 +119,33 @@
                 <span>{{ form.question_3.label }}
                 <br>
                 </span>{{ form.question_3(size=4)}}
+=======
+            <img src="{{ url_for('static', filename='img/family_diner.png') }}" alt="Family having dinner">
+                <span>{{ form.question_1.label }}</span>{{ form.question_1(size=4)}}
+                <span>{{ form.question_2.label }}</span>{{ form.question_2(size=4)}}
+                <span>{{ form.question_3.label }}</span>{{ form.question_3(size=4)}}
+                <br>
+>>>>>>> css
                 <br>
             </p>
             <p>
             <img src="{{ url_for('static', filename='img/restaurant.png') }}" alt="Text of restaurant information">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
                 <br>
                 <span>{{ form.question_4.label }}<br>
                 </span>{{ form.question_4(size=4)}}
+=======
+                <span>{{ form.question_4.label }}</span>{{ form.question_4(size=4)}}
+                <br>
+>>>>>>> css
                 <br>
                 </p>
             <p>
             <img src="{{ url_for('static', filename='img/schedule.png') }}" alt="Schedule question">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
@@ -62,21 +155,31 @@
                 <br>
                 <span>{{ form.question_6.label }}<br>
                 </span>{{ form.question_6(size=4)}}
+=======
+                <span>{{ form.question_5.label }}</span>{{ form.question_5(size=4)}}
+                <span>{{ form.question_6.label }}</span>{{ form.question_6(size=4)}}
+                <br>
+>>>>>>> css
                 <br>
                 </p>
             <p>
             <h2>Look at the map. Read the question. Choose the correct answer.</h2>
             <img src="{{ url_for('static', filename='img/map.png') }}" alt="Basic map">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
                 <br>
                 <span>{{ form.question_7.label }} <br>
                 </span>{{ form.question_7(size=4)}}
+=======
+                <span>{{ form.question_7.label }}</span>{{ form.question_7(size=4)}}
+>>>>>>> css
                 <br>
                 <br>
                 </p>
             <p>
+<<<<<<< HEAD
             <span>{{ form.question_8.label }}
             <br>
             </span>{{ form.question_8(size=4)}}
@@ -100,11 +203,20 @@
             <span>{{ form.question_13.label }}
                 <br>
             </span>{{ form.question_13(size=4)}}
+=======
+            <span>{{ form.question_8.label }}</span>{{ form.question_8(size=4)}}
+            <span>{{ form.question_9.label }}</span>{{ form.question_9(size=4)}}
+            <span>{{ form.question_10.label }}</span>{{ form.question_10(size=4)}}
+            <span>{{ form.question_11.label }}</span>{{ form.question_11(size=4)}}
+            <span>{{ form.question_12.label }}</span>{{ form.question_12(size=4)}}
+            <span>{{ form.question_13.label }}</span>{{ form.question_13(size=4)}}
+>>>>>>> css
             </p>
 
             <p>
             <h2>Look at the course catalog. Read the questions. Choose the correct answer.</h2>
             <img src="{{ url_for('static', filename='img/catalog.png') }}" alt="Text about courses">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
@@ -138,11 +250,25 @@
             <span>{{ form.question_19.label }}
                 <br>
             </span>{{ form.question_19(size=4)}}
+=======
+                <span>{{ form.question_missed.label }}</span>{{ form.question_missed(size=4)}}
+                <span>{{ form.question_14.label }}</span>{{ form.question_14(size=4)}}
+                <br>
+                <br>
+                </p>
+            <p>
+            <span>{{ form.question_15.label }}</span>{{ form.question_15(size=4)}}
+            <span>{{ form.question_16.label }}</span>{{ form.question_16(size=4)}}
+            <span>{{ form.question_17.label }}</span>{{ form.question_17(size=4)}}
+            <span>{{ form.question_18.label }}</span>{{ form.question_18(size=4)}}
+            <span>{{ form.question_19.label }}</span>{{ form.question_19(size=4)}}
+>>>>>>> css
             </p>
 
             <p>
             <h2>Look at the picture. Read the question. Choose the correct answer.</h2>
             <img src="{{ url_for('static', filename='img/fridge.png') }}" alt="picture of two fridges">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
@@ -150,17 +276,26 @@
                 <span>{{ form.question_20.label }}
                     <br>
                 </span>{{ form.question_20(size=4)}}
+=======
+                <span>{{ form.question_20.label }}</span>{{ form.question_20(size=4)}}
+                <br>
+>>>>>>> css
                 <br>
                 </p>
 
             <p>
+<<<<<<< HEAD
             <span>{{ form.question_21.label }}
                 <br>
             </span>{{ form.question_21(size=4)}}
+=======
+            <span>{{ form.question_21.label }}</span>{{ form.question_21(size=4)}}
+>>>>>>> css
             </p>
 
             <p>
             <h2>Read the story. Choose the correct answers.</h2>
+<<<<<<< HEAD
             <img src="{{ url_for('static', filename='img/fridge.png') }}" alt="keiko">
                 <br>
                 <br>
@@ -203,11 +338,26 @@
             <span>{{ form.question_30.label }}
                 <br>
             </span>{{ form.question_30(size=4)}}
+=======
+            <span>{{ form.question_22.label }}</span>{{ form.question_22(size=4)}}
+            <span>{{ form.question_23.label }}</span>{{ form.question_23(size=4)}}
+            </p>
+
+            <p>
+            <span>{{ form.question_24.label }}</span>{{ form.question_24(size=4)}}
+            <span>{{ form.question_25.label }}</span>{{ form.question_25(size=4)}}
+            <span>{{ form.question_26.label }}</span>{{ form.question_26(size=4)}}
+            <span>{{ form.question_27.label }}</span>{{ form.question_27(size=4)}}
+            <span>{{ form.question_28.label }}</span>{{ form.question_28(size=4)}}
+            <span>{{ form.question_29.label }}</span>{{ form.question_29(size=4)}}
+            <span>{{ form.question_30.label }}</span>{{ form.question_30(size=4)}}
+>>>>>>> css
             </p>
 
             <p>
             <h2>Read the article. Choose the correct answers.</h2>
             <img src="{{ url_for('static', filename='img/article.png') }}" alt="article about a family">
+<<<<<<< HEAD
                 <br>
                 <br>
                 <br>
@@ -219,10 +369,15 @@
                 <span>{{ form.question_32.label }}
                     <br>
                 </span>{{ form.question_32(size=4)}}
+=======
+                <span>{{ form.question_31.label }}</span>{{ form.question_31(size=4)}}
+                <span>{{ form.question_32.label }}</span>{{ form.question_32(size=4)}}
+>>>>>>> css
                 <br>
                 </p>
 
             <p>
+<<<<<<< HEAD
             <span>{{ form.question_33.label }}
                 <br>
             </span>{{ form.question_33(size=4)}}
@@ -250,10 +405,23 @@
             <span>{{ form.question_39.label }}
                 <br>
             </span>{{ form.question_39(size=4)}}
+=======
+            <span>{{ form.question_33.label }}</span>{{ form.question_33(size=4)}}
+            <span>{{ form.question_34.label }}</span>{{ form.question_34(size=4)}}
+            <span>{{ form.question_35.label }}</span>{{ form.question_35(size=4)}}
+            <span>{{ form.question_36.label }}</span>{{ form.question_36(size=4)}}
+            <span>{{ form.question_37.label }}</span>{{ form.question_37(size=4)}}
+            <span>{{ form.question_38.label }}</span>{{ form.question_38(size=4)}}
+            <span>{{ form.question_39.label }}</span>{{ form.question_39(size=4)}}
+>>>>>>> css
         </p>
         
         <p> {{ form.submit() }}</p>
         </form>
+
+        <br>
+        <br>
+        <p>{{ form.submit() }}</p>
         {% endblock %}
     </body>
 </html>

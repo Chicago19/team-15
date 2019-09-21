@@ -9,27 +9,17 @@
                 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
                     <!-- css -->
-<<<<<<< HEAD
-
-                        
-=======
                     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
->>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
                     <!-- favicon -->
                     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 
 
-<<<<<<< HEAD
-                    
-                        label {
-                            float: left;
-                            padding-left: 20px;
-=======
                         </head>
 
                         <style>
+
 
                         input[type=text] {
                             width: 20%;
@@ -43,25 +33,11 @@
                             outline: none;
                             }
 
-                            box{
-                                grid-template-columns: 120px 120px 120px;
->>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
-                            }
-
                             label {
-                                float: left;
                                 padding-left: 20px;
+                                align: "center";
                                 }
 
-<<<<<<< HEAD
-                        
-                        header {
-                            background-color: white;
-                            color: white;
-                            align-content: center;
-                        }
-=======
->>>>>>> de1e8bdf2e238ce4f319ec471ae9ca252c2639d9
 
                             input[type=text]:focus {
                             border: 3px solid #555;
@@ -75,6 +51,7 @@
 
                             body{
                                 background-color: lightgray;
+
                             }
 
                             img{
@@ -105,19 +82,23 @@
                                 color: white;
                             }
 
+
                         </style>
 
     <body>
-            <header>
+        <div style="text-align: center; width:100%;">
+            <header class="banner">
                     <div id ="head-content">
                       <div id = "logo">
-                        <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+                        <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
+                          <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
+                        </a>
                       </div>
                     </div>
                   </header>
         {% block content %}
         <div id="box">
-        <h3>Demographics</h3>
+        <h3 class= "banner">Demographics</h3>
 
         <br>
 
@@ -145,7 +126,7 @@
             form.date_of_birth(size=25) }}
             <br>
             <span>{{ form.gender.label }}</span> {{
-            form.gender(size=25) }}
+            form.gender(size=3) }}
             </p>
             <span>{{ form.marital_status.label }}</span>{{
             form.marital_status(size=4) }}
@@ -200,7 +181,7 @@
             form.max_grade_completed(size = 15)}}
             </p>
             <span>{{ form.school_type.label }}</span>{{
-            form.school_type(size = 32)}}
+            form.school_type(size = 5)}}
             </p>
             <span>{{ form.date_last_enrolled.label }}</span>{{
             form.date_last_enrolled(size = 10)}}
@@ -209,6 +190,7 @@
             form.num_school_years_completed(size = 8)}}
             </p>
         </div>
+
             <h3>Employment</h3>
             </p>
             <span>{{ form.occupation.label }}</span>{{
@@ -221,7 +203,7 @@
             form.employer_address(size = 32)}}
             </p>
             <span>{{ form.employment_status.label }}</span>{{
-            form.employment_status(size = 6)}}
+            form.employment_status(size = 4)}}
             </p>
             <span>{{ form.hours_per_week.label }}</span>{{
             form.hours_per_week(size = 32)}}
@@ -250,7 +232,7 @@
             form.disability(size = 5)}}
             </p>
             <span>{{ form.living_area.label }}</span>{{
-            form.living_area(size = 4)}}
+            form.living_area(size = 3)}}
             </p>
             <span>{{ form.how_hear_about.label }}</span>{{
             form.how_hear_about(size = 4)}}
@@ -277,10 +259,10 @@
             form.take_care_of_kids(size = 10)}}
             </p>
             <span>{{ form.immigration_status.label }}</span>{{
-            form.immigration_status(size = 10)}}
+            form.immigration_status(size = 4)}}
             </p>
             <span>{{ form.government_aid.label }}</span>{{
-            form.government_aid(size = 10)}}
+            form.government_aid(size = 7)}}
             </p>
             <span>{{ form.checking_acc.label }}</span>{{
             form.checking_acc(size = 10)}}
@@ -301,7 +283,7 @@
             form.work(size = 10)}}
             </p>
             <span>{{ form.work_benefits.label }}</span>{{
-            form.work_benefits(size = 10)}}
+            form.work_benefits(size = 5)}}
             </p>
             <span>{{ form.house_or_rent.label }}</span>{{
             form.house_or_rent(size = 10)}}
@@ -331,7 +313,7 @@
         </form>
         {% endblock %}
     </div>
-
+    </div>
     </body>
     <footer>
             <H6>Copyright © 2004 - 2019 PODER. All rights reserved. Design CPW

@@ -29,15 +29,15 @@
             grid-template-columns: 120px 120px 120px;
         }
 
-        label {
-            float: left;
-            padding-left: 20px;
-            }
-
 
         input[type=text]:focus {
         border: 3px solid #555;
         }
+
+        label {
+          padding-left: 20px;
+          text-align: center;
+          }
 
 
         header {
@@ -52,10 +52,6 @@
 
         img{
             width: 500px;
-        }
-
-        .form-control{
-            align-content: center;
         }
 
         #footer-image{
@@ -83,6 +79,7 @@
   </head>
 
   <body>
+      <div style="text-align: center; width:100%;">
     <header>
             <div id ="head-content">
               <div id = "logo">
@@ -114,6 +111,6 @@
           <p>{{ form.submit() }}</p>
       </form>
     {% endblock %}
-
+</div>
   </body>
 </html>

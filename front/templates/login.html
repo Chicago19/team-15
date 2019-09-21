@@ -36,10 +36,9 @@
         }
 
         label {
-            float: left;
-            padding-left: 20px;
-            }
-
+          padding-left: 20px;
+          text-align: center;
+          }
 
         input[type=text]:focus {
         border: 3px solid #555;
@@ -85,7 +84,7 @@
         }
 
     </style>
-
+<div style="text-align: center; width:100%;">
     <header>
             <div id ="head-content">
               <div id = "logo">
@@ -95,6 +94,9 @@
               </div>
             </div>
           </header>
+
+          <br>
+          <br>
 
     {% block content %}
       <h3>Login</h3>
@@ -117,6 +119,6 @@
           <p>{{ form.submit() }}</p>
       </form>
     {% endblock %}
-
+  </div>
   </body>
 </html>
