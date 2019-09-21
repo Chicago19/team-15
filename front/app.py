@@ -64,7 +64,7 @@ def renderAccountCreation():
 @app.route('/login/', methods=['GET', 'POST'])
 def renderLogin():
     if request.method == "GET":
-        form = loginForm()
+        form = AccountCreationForm()
         return (render_template('login.html', form = form))
 
     elif request.method == "POST":
@@ -95,7 +95,7 @@ def renderLogin():
 @app.route('/loginfail/', methods=['GET', 'POST'])
 def renderLoginFail():
     if request.method == "GET":
-        form = loginForm()
+        form = AccountCreationForm()
         return (render_template('failedlogin.html', form = form))
 
     elif request.method == "POST":
@@ -252,12 +252,12 @@ def renderDemographicForm():
         return(redirect("http://127.0.0.1:5000/careerinterests/"))
 
 @app.route('/careerinterests/', methods=["GET", "POST"])
-def renderCareerInterestForm():
+def renderCareerInterest():
     if request.method == "GET":
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
-    if request.method == "GET":
+    if request.method == "POST":
         username = cached_username
         career_interest = request.form['career_interest']
 
