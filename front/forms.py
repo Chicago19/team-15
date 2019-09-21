@@ -145,27 +145,6 @@ class PlacementTest(FlaskForm):
     question_1 = SelectField("What's the mother's name?", choices=[('a', 'His name is Pilar.'), ('b', 'Her name is Pilar.'), ('c', 'Their name is Pilar.'), ('d', 'Your name is Pilar.')])
     question_2 = SelectField("There are three ___ on the table.", choices=[('a', 'cup'), ('b', 'cups'), ('c', 'cake'), ('d', 'plate')])
     question_3 = SelectField("Is Ramona happy?", choices=[('a', 'Yes, she is.'), ('b', 'Yes, we are.'), ('c', 'Yes, he is.'), ('d.', 'Yes, they are.')])
-<<<<<<< HEAD
-    question_4 = SelectField("Carmina's Restaurant is open ___.", choices=[('a', 'on Sunday'), ('b', 'on Tuesday'), ('on Saturday', 'on Saturday'), ('on Monday', 'on Monday')])
-    question_5 = SelectField("How many people work at the day-care center?", choices = [('three', 'three'), ('four', 'four'), ('five', 'five'), ('six', 'six')])
-    question_6 = SelectField("Who works until 8:00 p.m. on Tuesday and Thursday?", choices = [('Dan', 'Dan'), ('Juan', 'Juan'), ('Megan', 'Megan'), ('Sally', 'Sally')])
-    question_7 = SelectField("The post office is ___ the parking lot.", choices = [('on', 'on'), ('across from', 'across from'), ('on the corner of', 'on the corner of'), ('next to', 'next to')])
-    question_8 = SelectField("What are Katia and Sara doing? They ____", choices = [('talking', 'talking'), ('are talking', 'are talking'), ('is talking', 'is talking'), ('talk', 'talk')])
-    question_9 = SelectField("Does Lee ___ a fever?", choices= [('had', 'had'), ('has', 'has'), ('have', 'have'), ('having', 'having')])
-    question_10 = SelectField("When do you eat lunch? ___ 12:30", choices = [('In', 'In'), ('On', 'On'), ('At', 'At'), ('From', 'From')])
-    question_11 = SelectField("How many ___ do we have? Three.", choices = [('tea', 'tea'), ('onions', 'onions'), ('milk', 'milk'), ('bread', 'bread')])
-    quesion_12 = SelectField("Yolanda is a teacher now. She ___ a teacher's assistant before.", choices = [('is', 'is'), ('are', 'are'), ('was', 'was'), ('were', 'were')])
-    question_13 = SelectField("Yesterday, Dan ____ groceries after work.", choices=[('bought', 'bought'), ('buying', 'buying'), ('buy', 'buy'), ('buys', 'buys')])
-    question_14 = SelectField("Which course meets on Mondays and Tuesdays?", choices=[('GED', 'GED'), ('TV and DVD repair', 'TV and DVD repair'), ('Introduction to Computers', 'Introduction to Computers'), ('Citizenship', 'Citizenship')])
-    question_15 = SelectField("What did Joe buy Sylvia? He bought ___ a cake.", choices=[('to her', 'to her'), ('them', 'them'), ('she', 'she'), ('her', 'her')])
-    question_16 = SelectField("Leon has a test tomorrow. He ___ study tonight.", choices = [('is', 'is'), ('does', 'does'), ('will', 'will'), ('are', 'are')])
-    question_17 = SelectField("When do Mr. and Mrs. Yamada usually eat dinner? They usually ___ at 7 p.m.", choices = [('eat', 'eat'), ('eats', 'eats'), ('ate', 'ate'), ('eating', 'eating')])
-    question_18 = SelectField("Marcia's back is hurting. She ___ to see a doctor.", choices = [('have', 'have'), ('has', 'has'), ('having', 'having'), ('had', 'had')])
-    question_19 = SelectField("How long does it take to drive to Philadelphia? It takes ____.", choices = [('every day', 'every day'), ('often', 'often'), ('about two hours', 'about two hours'), ('twice a month', 'twice a month')])
-    question_20 = SelectField("The white refrigerator is large. But the gray refrigerator is ____.", choices= [('larger than', 'larger than'), ('smaller', 'smaller'), ('larger', 'larger'), ('large', 'large')])
-    question_21 = SelectField("Ravi cleaned his room, ___ he didn't make his bed.", choices = [('or', 'or'), ('but', 'but'), ('and', 'and'), ('now', 'now')])
-    submit = SubmitField('Submit')
-=======
     question_4 = SelectField("Carmina's Restaurant is open ___.", choices=[('a', 'on Sunday'), ('b', 'on Tuesday'), ('c', 'on Saturday'), ('d', 'on Monday')])
     question_5 = SelectField("How many people work at the day-care center?", choices = [('a', 'three'), ('b', 'four'), ('c', 'five'), ('d', 'six')])
     question_6 = SelectField("Who works until 8:00 p.m. on Tuesday and Thursday?", choices = [('a', 'Dan'), ('b', 'Juan'), ('c', 'Megan'), ('d', 'Sally')])
@@ -174,7 +153,7 @@ class PlacementTest(FlaskForm):
     question_9 = SelectField("Does Lee ___ a fever?", choices= [('a', 'had'), ('b', 'has'), ('c', 'have'), ('d', 'having')])
     question_10 = SelectField("When do you eat lunch? ___ 12:30", choices = [('a', 'In'), ('b', 'On'), ('c', 'At'), ('d', 'From')])
     question_11 = SelectField("How many ___ do we have? Three.", choices = [('a', 'tea'), ('b', 'onions'), ('c', 'milk'), ('d', 'bread')])
-    quesion_12 = SelectField("Yolanda is a teacher now. She ___ a teacher's assistant before.", choices = [('a', 'is'), ('b', 'are'), ('c', 'was'), ('d', 'were')])
+    question_12 = SelectField("Yolanda is a teacher now. She ___ a teacher's assistant before.", choices = [('a', 'is'), ('b', 'are'), ('c', 'was'), ('d', 'were')])
     question_13 = SelectField("Yesterday, Dan ____ groceries after work.", choices=[('a', 'bought'), ('b', 'buying'), ('c', 'buy'), ('d', 'buys')])
     question_missed = SelectField("What will you learn in Ms. Cuevas's class?", choices =[('a', 'math'),('b', 'TV repair'), ('c', 'computer repair'), ('d', 'American history')])
     question_14 = SelectField("Which course meets on Mondays and Tuesdays?", choices=[('a', 'GED'), ('b', 'TV and DVD repair'), ('c', 'Introduction to Computers'), ('d', 'Citizenship')])
@@ -221,5 +200,3 @@ class Schedule(FlaskForm):
     orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
 
     '''
-
->>>>>>> 4ee2009476ac1a2f6e6b9e4e5151e9b8c75b7277

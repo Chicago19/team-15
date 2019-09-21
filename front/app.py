@@ -1,12 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
-<<<<<<< HEAD
-from forms import AccountCreationForm, DemographicForm, CareerInterest
-=======
 from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
-from forms import AccountCreationForm, DemographicForm
->>>>>>> 4ee2009476ac1a2f6e6b9e4e5151e9b8c75b7277
 import requests
 import json
 from forms import AccountCreationForm, DemographicForm, CareerInterest
