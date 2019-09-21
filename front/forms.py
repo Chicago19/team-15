@@ -125,3 +125,5 @@ class CareerInterest(FlaskForm):
     ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
     ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
     ])
+
+    submit = SubmitField('Submit')
