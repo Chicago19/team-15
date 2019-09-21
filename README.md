@@ -2,6 +2,12 @@
 
 team 15's web-app for PODER
 
+## Installation
+
+```
+pip install -r requirements.txt
+```
+
 
 ## To Run our Front-End
 
