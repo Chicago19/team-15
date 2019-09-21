@@ -7,9 +7,7 @@
     <!-- google font api -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-<<<<<<< HEAD
-=======
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css')}}">
+
     <style>
       #button {
         font-family: sans-serif;
@@ -20,7 +18,7 @@
         margin: 150px;
       }
       .redButton{
-        background-color: #e8927c; 
+        background-color: #e8927c;
         color: #da291c;
         border: none;
         display: inline-block;
@@ -65,14 +63,35 @@
         color:  white;
         transition: 0.9s;
       }
+      header {
+        background-color: #41B6E6;
+        color: white;
+      }
+      footer{
+        background-color: #0076AB;
+        color: white;
+      }
+      body {
+          text-align: center;
+          align-content: center;
+          width: 80%;
+          height: auto;
+          margin: auto;
+          background-image: url("/static/img/buildings.jpg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: scroll;
+          background-size: cover;
+          background-position: center;
 
+        }
     </style>
->>>>>>> 05bff6cb9ff9060861f17b29028020dd51935382
 
   </head>
 
   <body>
     <header>
+      <H1>HEADER</h1>
       <div id ="head-content">
         <div id = "logo">
           <img src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
@@ -86,11 +105,13 @@
         <button id="button" class= "greenButton">Current Students</button>
       </div>
       <div id="centered-content">
-        <p>Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input </p>
       </div>
       <div id="centered-button">
         <button id="longButton" class="yellowButton">Resources</button>
       </div>
       </div>
   </body>
+  <footer>
+    <H1>FOOTER</H1>
+  </footer>
 </html>
