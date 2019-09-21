@@ -126,9 +126,22 @@ class CareerInterest(FlaskForm):
     ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
     ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
     ])
+
+    start_date_fall = datetime.datetime(2019, 8, 26)
+    start_date_spring = datetime.datetime(2020, 1, 1)
+    start_date_summer = datetime.datetime(2020, 5, 10)
+
+    today = datetime.datetime.now()
+
+    possible_dates = []
+    while (today <= start_date_fall + datetime.timedelta(days=70)):
+        possible_dates.append((str(today), str(today)))
+        today += datetime.timedelta(days = 1)
+    orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
+
     submit = SubmitField('Submit')
 
-
+'''
 class Schedule(FlaskForm):
     start_date_fall = datetime.datetime(2019, 8, 26)
     start_date_spring = datetime.datetime(2020, 1, 1)
@@ -140,5 +153,5 @@ class Schedule(FlaskForm):
     while (today <= start_date_fall + datetime.timedelta(days=70)):
         possible_dates.append((str(today), str(today)))
         today += datetime.timedelta(days = 1)
-
     orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
+    '''
