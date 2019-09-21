@@ -12,3 +12,7 @@ class AccountCreationForm(FlaskForm):
 
 class DashboardForm(FlaskForm):
     grades = SubmitField('Grades')
+    calendar = SubmitField('Calendar')
+    editprofile = SubmitField('Edit Profile')
+    attendance = SubmitField('Attendance')
+    
