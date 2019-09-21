@@ -28,7 +28,7 @@ def accountCreation():
             email = data['username']
             password = data['password']
 
-            df = pd.read_csv(str(dfFolder))
+            df = pd.read_csv(str(dataFolder))
 
             user = df.loc[df["username"] == email]
 
@@ -40,7 +40,7 @@ def accountCreation():
 
                 df = df.append({'username' : email , 'password' : h.hexdigest()} , ignore_index=True)
 
-                df.to_csv(str(dataFolder))
+                df.to_csv(str(dataFolder), index=False)
 
                 return "200 - OK"
 
@@ -216,7 +216,7 @@ def demographics():
 
                 df.at[i, 'why_learn_english'] = why_learn_english
 
-                df.to_csv(str(dataFolder))
+                df.to_csv(str(dataFolder), index=False)
 
                 return "200 - OK"
 
