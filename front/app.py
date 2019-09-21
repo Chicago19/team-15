@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from config import Config
 import threading, webbrowser
-from forms import AccountCreationForm, DemographicForm, CareerInterest
+from forms import AccountCreationForm, DemographicForm, CareerInterest, PlacementTest
 import requests
 import json
+from forms import AccountCreationForm, DemographicForm, CareerInterest
 
 
 
@@ -260,6 +261,7 @@ def renderCareerInterest():
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
+<<<<<<< HEAD
     if request.method == "POST":
         username = cached_username
         career_interest = request.form['career_interest']
@@ -280,6 +282,13 @@ def renderCareerInterest():
         requests.post(url, headers=headers, data=json.dumps(payload))
 
         return(redirect("http://127.0.0.1:5000/test/"))
+=======
+@app.route('/test/', methods=["GET", "POST"])
+def renderTestForm():
+    if request.method == "GET":
+        form = PlacementTest()
+        return(render_template('test.html', form = form))
+>>>>>>> master
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
