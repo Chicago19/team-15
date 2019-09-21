@@ -89,6 +89,9 @@
       <header>
               <div id ="head-content">
                 <div id = "logo">
+                    <br>
+                    <br>
+                    <br>
                   <a href="http://127.0.0.1:5000/home/" noreferrer noopener>
                     <img alt = "Poder logo" src="{{ url_for('static', filename='img/poderTranslogo.png') }}">
                   </a>
@@ -99,7 +102,7 @@
             <br>
             <br>
         {% block content %}
-        <h3>Integrative English Exam</h3>
+        <h3>Integrated English Exam</h3>
 
         <br>
 
@@ -107,9 +110,19 @@
             {{ form.hidden_tag() }}
             <p>
             <h2>Look at the picture. Read the sentences. Choose the correct answer.</h2>
+            <br>
+            <br>
+            <br>
             <img src="{{ url_for('static', filename='img/family_dinner.png') }}" alt="Family having dinner">
+                <br>
+                <br>
                 <span>{{ form.question_1.label }}</span>{{ form.question_1(size=4)}}
-                <span>{{ form.question_2.label }}</span>{{ form.question_2(size=4)}}
+                <br>
+                <br>
+                <span>{{ form.question_2.label }}
+                    <br>
+                </span>{{ form.question_2(size=4)}}
+                <br>
                 <span>{{ form.question_3.label }}</span>{{ form.question_3(size=4)}}
                 <br>
                 <br>
@@ -340,6 +353,7 @@
 
         <p> {{ form.submit() }}</p>
         </form>
+        {% endblock %}
     </div>
     </body>
 </html>
