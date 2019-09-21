@@ -9,7 +9,29 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      body {
+        text-align: center;
+      }
+      .header{
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+      button {
+        background-color: #009a44;
+        border: none;
+        color: white;
+        display: inline-block;
+        padding: 3000px, 1000px;
+        text-align: center;
+        margin: 100px;
+        font-size: 50px;
+        
+      }
+        button:hover {
+          background-color: #4CAF50; /* Green */
+          color: white;
+      }
+    </style>
 
   </head>
 
@@ -21,14 +43,19 @@
         </div>
       </div>
     </header>
-    <!-- background color block -->
+    <!-- background white block -->
     <div id= "content">
       <div id = "in-line-columns">
-        <button type="button">Prospective Students</button>
-        <button type="button">Current Students</button>
+        <button  class="button">Prospective Students</a>
+        <button  class= "button">Current Students</button>
+      </div>
+      <div id="centered-content">
+        <p>Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input Test Input </p>
+      </div>
+      <div id="centered-button">
+        <button type="button">Resources</button>
       </div>
     </div>
-
 
   </body>
 </html>
