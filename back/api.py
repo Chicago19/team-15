@@ -64,16 +64,16 @@ def login():
             df = pd.read_csv(str(dataFolder))
 
             user = df.loc[df["username"] == email]
-            i = df.index[data["username"] == df["username"]]
+            i = df[df["username"] == email].index.values.astype(int)[0]
 
 
             # If the user exists
             if not user.empty:
-                if password == df.at[i, 'password']:
+                h = hashlib.md5(password.encode())
+                if h.hexdigest() == df.at[i, 'password']:
                     first_name = df.at[i, "first_name"]
                     last_name = df.at[i, "last_name"]
                     exists = True
-
                     return jsonify(first_name = first_name, last_name=last_name, exists=exists)
 
             return jsonify(exists = False)

@@ -84,12 +84,12 @@ def renderLogin():
                 'password': password
         }
 
-        response = requests.get(url, headers=headers, data=json.dumps(payload))
+        response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
 
-        if response.exists:
+        if response['exists']:
             return(redirect("http://127.0.0.1:5000/currentstudents/"))
         else:
-            return(redirect("http://127.0.0.1:5000/login_fail/"))
+            return(redirect("http://127.0.0.1:5000/loginfail/"))
 
 
 @app.route('/loginfail/', methods=['GET', 'POST'])
@@ -115,12 +115,15 @@ def renderLoginFail():
                 'password': password
         }
 
-        response = requests.get(url, headers=headers, data=json.dumps(payload))
+        response = requests.get(url, headers=headers, data=json.dumps(payload)).json()
 
-        if response.exists:
-            return(redirect("http://127.0.0.1:5000/currentstudents/"))
-        else:
-            return(redirect("http://127.0.0.1:5000/loginfail/"))
+        try:
+            if response['exists']:
+                return(redirect("http://127.0.0.1:5000/currentstudents/"))
+            else:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
+        except:
+                return(redirect("http://127.0.0.1:5000/loginfail/"))
 
 
 @app.route('/demographics/', methods=["GET", "POST"])
