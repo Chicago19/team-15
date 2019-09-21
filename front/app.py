@@ -62,6 +62,10 @@ def renderCareerInterestForm():
         form = CareerInterest()
         return(render_template('careerinterest.html', form = form))
 
+@app.route('/resources/', methods=["GET", "POST"])
+def renderResources():
+    return(render_template('resources.html'))
+
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000/home'
     threading.Timer(2, lambda: webbrowser.open(url, new=1)).start()

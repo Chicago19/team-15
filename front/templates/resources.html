@@ -28,6 +28,39 @@
         display: inline-block;
         margin: 50px;
       }
+      .link_button_red{
+        background-color: #e8927c;
+        color: #da291c;
+        border: none;
+        display: inline-block;
+        padding: 10px, 15px;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 20px;
+        width: 150px;
+        height: 100px;
+        display: inline-block;
+        margin: 10px;
+      }
+      .link_button_green{
+        background-color: #009a44;
+        color: #215732;
+        border: none;
+        display: inline-block;
+        padding: 10px, 15px;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 20px;
+        width: 150px;
+        height: 100px;
+        display: inline-block;
+        margin: 10px;
+      }
+      .link_button:hover {
+        background-color: #da291c;
+        color:  white;
+        transition: 0.9s;
+      }
       .redButton{
         background-color: #e8927c;
         color: #da291c;
@@ -93,6 +126,16 @@
         color: white;
         padding-bottom: 10px;
       }
+      #content{
+        box-sizing: content-box;
+        width: 400px;
+        height: 1000px;
+        background-color: white;
+        align-content: center;
+        margin-left: 530px;
+        padding-top: 35px;
+        text-align: center;
+      }
       body {
           text-align: center;
           align-content: center;
@@ -108,6 +151,7 @@
           background-color: #0076AB;
           color: white;
         }
+
     </style>
 
   </head>
@@ -120,20 +164,33 @@
         </div>
       </div>
     </header>
-    <!-- background white block -->
-      <div id = "content">
-      <div id = "in-line-columns">
-        <a  href= "http://127.0.0.1:5000/accountcreation/"><button id="button" class="redButton">Prospective Students</button></a>
-        
-        <button id="button" class= "greenButton">Current Students</button>
-      </div>
-      <div id="centered-content">
-      </div>
-      <div id="centered-button">
-        <a href= "http://127.0.0.1:5000/resources/"><button id="longButton" class="yellowButton">Resources</button></a>
-      </div>
-      </div>
+ 
+    <div id="content">
+        <h2>Daycare Services</h2>
+        <p></p>
+        <p></p>
+        <h5>Teddy Bear Day Care Center</h5>
+        <p>6401 S Pulaski Rd, Chicago, IL 60629</p>
+        <a href="http://teddybeardaycare.com/" target="blank_"><button class = "link_button_red" >Teddy Bear Day Care Center</button></a>
+        <p></p>
+        <h5>Growing Up Green Daycare</h5>
+        <p>6135 S Kedvale Ave, Chicago, IL 60629</p>
+        <a href="https://growing-up-green-daycare.business.site/?utm_source=gmb&utm_medium=referral" target="blank_"><button class = "link_button_red" >Growing Up Green Daycare</button></a>
+        <p></p>
+        <h5>Little Kids Village Too</h5>
+        <p>3732 W 63rd St, Chicago, IL 60629</p>
+        <a href="http://littlekidsvillage.com/index.html" target="blank_"><button class = "link_button_red" >Little Kids Village Too</button></a>
+        <p></p>
+        <p></p>
+        <h2>Libraries</h2>
+        <p></p>
+        <p></p>
+        <h5>West Lawn Branch, Chicago Public Library</h5>
+        <p>4020 W 63rd St, Chicago, IL 60629</p>
+        <a href="https://www.chipublib.org/locations/77/" target="blank_"><button class = "link_button_green" >Public Library</button></a>
+        <p></p>
     </div>
+
 
   </body>
   <footer>

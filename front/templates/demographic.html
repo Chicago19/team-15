@@ -26,14 +26,20 @@
                         outline: none;
                         }
 
+                        box{
+                            grid-template-columns: 120px 120px 120px;
+                        }
+                    
                         label {
                             float: left;
                             padding-left: 20px;
                             }
+                        
 
                         input[type=text]:focus {
                         border: 3px solid #555;
                         }
+
                         
                         header {
                             background-color: white;
@@ -48,6 +54,10 @@
                             width: 500px;
                         }
 
+                        .form-control{
+                            align-content: center;
+                        }
+
                         #footer-image{
                             width: 100px;
                         }
@@ -59,73 +69,6 @@
                             padding-bottom: 10px;
                         }
 
-                        /* The container */
-                        .container {
-                        display: block;
-                        position: relative;
-                        padding-left: 35px;
-                        margin-bottom: 12px;
-                        cursor: pointer;
-                        font-size: 22px;
-                        -webkit-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                        }
-
-                        /* Hide the browser's default checkbox */
-                        .container input {
-                        position: absolute;
-                        opacity: 0;
-                        cursor: pointer;
-                        height: 0;
-                        width: 0;
-                        }
-
-                        /* Create a custom checkbox */
-                        .checkmark {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        height: 25px;
-                        width: 25px;
-                        background-color: #eee;
-                        }
-
-                        /* On mouse-over, add a grey background color */
-                        .container:hover input ~ .checkmark {
-                        background-color: #ccc;
-                        }
-
-                        /* When the checkbox is checked, add a blue background */
-                        .container input:checked ~ .checkmark {
-                        background-color: #2196F3;
-                        }
-
-                        /* Create the checkmark/indicator (hidden when not checked) */
-                        .checkmark:after {
-                        content: "";
-                        position: absolute;
-                        display: none;
-                        }
-
-                        /* Show the checkmark when checked */
-                        .container input:checked ~ .checkmark:after {
-                        display: inline-block;
-                        }
-
-                        /* Style the checkmark/indicator */
-                        .container .checkmark:after {
-                        left: 9px;
-                        top: 5px;
-                        width: 5px;
-                        height: 10px;
-                        border: solid white;
-                        border-width: 0 3px 3px 0;
-                        -webkit-transform: rotate(45deg);
-                        -ms-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                        }
                         
                         input[type=submit] {
                             padding:5px 15px; 
@@ -147,6 +90,7 @@
                     </div>
                   </header>
         {% block content %}
+        <div id="box">
         <h3>Demographics</h3>
         
         <br>
@@ -155,7 +99,7 @@
             {{ form.hidden_tag() }}
             <p>
             <h3>Basic Information</h3>
-            <span>{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
+            <span >{{ form.first_name.label }}</span> {{ form.first_name(size=25) }}
             <br>
             {% for error in form.first_name.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -186,7 +130,7 @@
             <span>{{ form.country_of_origin.label }}</span>{{
             form.country_of_origin(size=25) }}
             </p>
-            <span>{{ form.racial_group.label }}</span>{{
+            <span >{{ form.racial_group.label }}</span>{{
             form.racial_group(size=4) }}
             </p>
             <span>{{ form.english_second_lang.label }}</span>{{
@@ -238,6 +182,7 @@
             <span>{{ form.num_school_years_completed.label }}</span>{{
             form.num_school_years_completed(size = 8)}}
             </p>
+        </div>
             <h3>Employment</h3>
             </p>
             <span>{{ form.occupation.label }}</span>{{
@@ -359,6 +304,7 @@
             <p>{{ form.submit() }}</p>
         </form>
         {% endblock %}
+    </div>
         
     </body>
     <footer>
