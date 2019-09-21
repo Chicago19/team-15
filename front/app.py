@@ -21,7 +21,7 @@ def renderDashboard():
     Renders a viewable web application on your port:
     http://127.0.0.1:5000/home
     '''
-
+    
     return (render_template('currentstudents.html') )
 
 if __name__ == '__main__':
