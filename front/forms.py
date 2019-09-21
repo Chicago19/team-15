@@ -104,6 +104,7 @@ class DemographicForm(FlaskForm):
     internet_access_elsewhere = BooleanField() #Do you have internet access elsewhere?
 
     why_learn_english = SelectMultipleField('Why do you want to learn english?', choices=[('GED', 'GED'), ('Job', 'Job'), ('Citizenship', 'Citizenship'), ('To get an education', 'To get an education'), ('Move forward at work', 'Move forward at work'), ('Help kids at school', 'Help kids at school')])
+    submit = SubmitField('Submit')
 
 class CareerInterest(FlaskForm):
     career_interest = SelectField('Select one field that is a career cluster you are interested in pursuing', choices= [
