@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, SelectField
+from wtforms import StringField, SubmitField, BooleanField, SelectField, SelectMultipleField, validators
 from wtforms.validators import DataRequired, Email, Length, input_required, optional
 
 class AccountCreationForm(FlaskForm):
@@ -66,7 +66,10 @@ class DemographicForm(FlaskForm):
     num_dependents_other = StringField('Number of Dependents-other', validators=[validators.optional()])
     yearly_income = num_dependents_minor = StringField('Yearly household income', validators=[validators.input_required()])
     public_assistance = BooleanField() #do you recieve public assistance?
-    public_assistance_number = StringField('If yes, public assistance number', validators=[validators.optional()]
-    disability = SelectField(u'Do you have a disability?', choices=[('Not Disabled','Not Disabled'), ('Physical Impairment', 'Physical Impairment'),
-    ('Mental Impairment', 'Mental Impairment'), ('Learning Impairment', 'Learning Impairment'), ('Multiple disabilities', 'Multiple disabilities')])
-    
+    public_assistance_number = StringField('If yes, public assistance number', validators=[validators.optional()])
+    disability = SelectField(u'Do you have a disability?', choices=[('Not Disabled','Not Disabled'), ('Physical Impairment', 'Physical Impairment'),('Mental Impairment', 'Mental Impairment'), ('Learning Impairment', 'Learning Impairment'), ('Multiple disabilities', 'Multiple disabilities')])
+
+    living_area = SelectField(u'What area do you live in?', choices=[('Rural Area', 'Rural Area'), ('Urban Area', 'Urban Area (with high unemployment)'), ('Neither', 'Neither')])
+    how_hear_about = SelectField(u'How did you hear about us?', choices=[('Friend or Relative', 'Friend or Relative'), ('TV, radio, newspaper', 'TV, radio, newspaper'), ('Flyer', 'Flyer'), ('Other', 'Other')])
+    add_student_info = SelectMultipleField(u'Additional Student information', choices=[('Low income', 'Low income'), ('Displaced Homemaker', 'Displaced Homemaker'), ('Single Parent', 'Single Parent'), ('Dislocated worker', 'Dislocated worker'), ('Veteran', 'Veteran')])
+    #add_student_info2 =
