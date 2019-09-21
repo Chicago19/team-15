@@ -61,6 +61,35 @@ def renderAccountCreation():
 
         return(redirect("http://127.0.0.1:5000/demographics/"))
 
+@app.route('/login/', methods=['GET', 'POST'])
+def renderLogin():
+    if request.method == "GET":
+        form = loginForm()
+        return (render_template('login.html', form = form))
+
+    elif request.method == "POST":
+        username = request.form['username'].strip()
+        password = request.form['password']
+
+        url = "http://0.0.0.0:8080/accountcreation/"
+
+        # Yes, the x-api-token is weird. No, I don't know why I picked it.
+        headers = {
+            'content-type': 'application/json',
+            'x-api-token': 'jria'
+        }
+
+        payload = {
+                'username': username,
+                'password': password
+        }
+
+        requests.post(url, headers=headers, data=json.dumps(payload))
+
+        cached_username = username
+
+        return(redirect("http://127.0.0.1:5000/grades/"))
+
 @app.route('/demographics/', methods=["GET", "POST"])
 def renderDemographicForm():
     if request.method == "GET":
