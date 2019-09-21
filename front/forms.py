@@ -35,8 +35,8 @@ class DemographicForm(FlaskForm):
     city = StringField('City', validators=[validators.input_required()])
     state = StringField('State', validators=[validators.input_required()])
     zip_code = StringField('Zip Code', validators=[validators.input_required()])
-    home_phone = StringField('Home Phone', validators=[validators.input_required()])
-    cell_phone = StringField('Cell Phone', validators=[validators.input_required()])
+    home_phone = StringField('Home Phone', validators=[validators.optional()])
+    cell_phone = StringField('Cell Phone', validators=[validators.optional()])
     emergency_contact_name = StringField('Emergency contact name', validators=[validators.input_required()])
     emergency_contact_num = StringField('Emergency contact phone number', validators=[validators.input_required()])
     emergency_contact_relation = StringField('Emergency contact relationship', validators=[validators.input_required()])
@@ -105,6 +105,7 @@ class DemographicForm(FlaskForm):
     internet_access_elsewhere = BooleanField() #Do you have internet access elsewhere?
 
     why_learn_english = SelectMultipleField('Why do you want to learn english?', choices=[('GED', 'GED'), ('Job', 'Job'), ('Citizenship', 'Citizenship'), ('To get an education', 'To get an education'), ('Move forward at work', 'Move forward at work'), ('Help kids at school', 'Help kids at school')])
+    submit = SubmitField('Submit')
 
 class CareerInterest(FlaskForm):
     career_interest = SelectField('Select one field that is a career cluster you are interested in pursuing', choices= [
@@ -125,17 +126,4 @@ class CareerInterest(FlaskForm):
     ('Science, Technology, Engineering & Mathematics', 'Science, Technology, Engineering & Mathematics'),
     ('Transportation, Distribution & Logistics','Transportation, Distribution & Logistics')
     ])
-
-class Schedule(FlaskForm):
-    start_date_fall = datetime.datetime(2019, 8, 26)
-    start_date_spring = datetime.datetime(2020, 1, 1)
-    start_date_summer = datetime.datetime(2020, 5, 10)
-
-    today = datetime.datetime.now()
-
-    possible_dates = []
-    while (today <= start_date_fall + datetime.timedelta(days=70)):
-        possible_dates.append((str(today), str(today)))
-        today += datetime.timedelta(days = 1)
-
-    orientation = SelectMultipleField('Select the dates you are available for orientation', choices=possible_dates)
+    submit = SubmitField('Submit')
